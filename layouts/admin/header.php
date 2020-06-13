@@ -19,7 +19,7 @@
     border: 1px solid gray;
     padding: 0 8px;
     cursor: pointer;
-    }  
+    }
     .text-center{
       text-align: center;
     }
@@ -214,7 +214,7 @@
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="<?= url('admin/blog') ?>">
             <span class="link-title">Tin tức</span>
             <i class="mdi mdi-book-open link-icon"></i>
           </a>
