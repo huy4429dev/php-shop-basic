@@ -5,7 +5,7 @@ include('../../autoload/Autoload.php');
 //================================ logged -> redirect dash board
 
 if(Auth::user()){
-    
+
     Redirect::url('admin/dashboard');
 }
 
@@ -25,18 +25,18 @@ if (Input::hasPost('login')) {
     if(!Validator::anyErrors()){
 
         $sql = "SELECT * FROM users WHERE name = '$username' && password = '$password'";
-        
+
         $data = $DB->query($sql);
 
         if(is_array($data)){
             Session::put('user',$data);
             Redirect::url('admin/dashboard');
         }
-        
+
         $loginErr = "Sai tên đăng nhập hoặc mật khẩu";
     }
 
-  
+
 }
 
 ?>
@@ -83,7 +83,7 @@ if (Input::hasPost('login')) {
                                             </ul>
                                         </div>
                                     <?php endif ?>
-                                     
+
                                     <?php if(isset($loginErr)):?>
                                         <div class="alert alert-danger">
                                             <?= $loginErr ?>
