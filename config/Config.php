@@ -5,6 +5,6 @@
         'password' => '',
         'name'   => 'shop',
     ];
-    const  BASE_URL = 'http://shop.loc/';
+    const  BASE_URL = 'http://localhost/php_shop';
 
 ?>

@@ -69,7 +69,6 @@ class DB
 
     public function create($table, $data)
     {
-        die ($data);
         if (is_array($data)) {
             $dataKey   = implode(',', array_keys($data));
             $dataValue = [];

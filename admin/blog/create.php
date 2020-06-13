@@ -8,7 +8,9 @@ if (!Auth::user()) {
     Redirect::url('admin/account/login.php');
 }
 //================= add category
-$news = $DB->query('SELECT * FROM baiviet');
+
+$news = $DB->query('SELECT * FROM  danhmuc_blog');
+
 if(Input::hasPost('create')) {
    $title     = Input::post('tieude');
    $doantrich = Input::post('doantrich');
