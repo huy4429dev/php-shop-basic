@@ -25,16 +25,16 @@ if (Input::hasPost('create')) {
     if (!Validator::anyErrors()) {
         // neu data hợp lệ thì chạy lệnh trong này
 
-        $success = $DB->create('danhmuc_blog',[
+        $success = $DB->create('danhmuc_blog', [
             'tendanhmuc' => $tendanhmuc,
             'mota'       => $mota,
         ]);
 
-        if($success){
+        if ($success) {
             $alertSuccess = 'Thêm danh mục thành công';
         }
 
-    
+
         // neu data hợp lệ thì chạy lệnh trong này
     }
 }
@@ -50,7 +50,7 @@ include('../../layouts/admin/header.php');
 <div class="container">
     <div class="grid-body">
         <div class="item-wrapper">
-            <form  method="post">
+            <form method="post">
                 <div class="row mb-3">
                     <div class="col-md-8 mx-auto">
                         <?php
@@ -68,11 +68,11 @@ include('../../layouts/admin/header.php');
                         if (isset($alertSuccess)) : ?>
                             <div class="alert alert-success">
                                 <ul>
-                                        <li><?= $alertSuccess ?></li>
+                                    <li><?= $alertSuccess ?></li>
                                 </ul>
                             </div>
                         <?php endif ?>
-                        
+
                         <div class="form-group row showcase_row_area">
                             <div class="col-md-2 showcase_text_area text-left">
                                 <label for="inputType1">Tên loại</label>
@@ -90,24 +90,24 @@ include('../../layouts/admin/header.php');
                             </div>
                         </div>
                         <div class="form-group row showcase_row_area">
-                        <div class="col-md-2 showcase_text_area text-left">
-                              <label>Danh mục</label>
+                            <div class="col-md-2 showcase_text_area text-left">
+                                <label>Danh mục</label>
                             </div>
                             <div class="col-md-9 showcase_content_area">
-                              <select class="custom-select" name="danhmuc_id">
-                                <option selected="">Chọn danh mục</option>
-                                <option value="1">Ngon</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                              </select>
+                                <select class="custom-select" name="danhmuc_id">
+                                    <option selected="">Chọn danh mục</option>
+                                    <option value="1">Ngon</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
                             </div>
-                          </div>
+                        </div>
                         <div class="form-group row showcase_row_area">
                             <div class="col-md-2 showcase_text_area text-left">
                                 <button type="submit" name="create" class="btn btn-sm btn-success">Thêm mới</button>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>

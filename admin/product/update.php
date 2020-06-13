@@ -23,6 +23,9 @@ if (Input::hasPost('create')) {
     $soluong    = Input::post('soluong');
     $sale       = Input::post('sale');
     $danhmuc_id = Input::post('danhmuc_id');
+    $hinhanh    = Input::post('thumbnailUrl');
+    $images     = Input::post('images');
+
 
     Validator::required($tensanpham, "Vui lòng nhập tên sản phẩm")
         ->min($tensanpham, 1, "Tên sản phẩm quá ngắn")
@@ -32,22 +35,21 @@ if (Input::hasPost('create')) {
         ->numeric($giaban, "Giá bán không hợp lệ ")
         ->required($soluong, "Vui lòng nhập số lượng ")
         ->numeric($giaban, "Số lượng không hợp lệ ")
-        ->categoryRequired($danhmuc_id, "Vui lòng chọn loại sản phẩm");
+        ->categoryRequired($danhmuc_id, "Vui lòng chọn loại sản phẩm")
+        ->required($hinhanh, "Vui lòng chọn thumbnail");
 
 
     if (!Validator::anyErrors()) {
-        $success = $DB->create('sanpham', [
+        $success = $DB->update('sanpham', [
             'tensanpham' => $tensanpham,
             'mota'       => $mota,
             'giaban'     => $giaban,
             'soluong'    => $soluong,
             'danhmuc_id' => $danhmuc_id,
             'sale'       => $sale,
-            'hinhanh'    => '',
-            'danhgia'    => 5,
-            'luotmua'    => 0,
+            'hinhanh'    => $hinhanh,
             'user_id'    => Auth::user()->id,
-        ]);
+        ], $id);
 
         if ($success === true) {
             $alertSuccess = "Thêm sản phẩm thành công";
@@ -55,12 +57,34 @@ if (Input::hasPost('create')) {
             $alertErr     = $success;
         }
     }
+
+
+    $DB->delete('anhsanpham', $id, ['sanpham_id']);
+
+    // add images
+
+    foreach ($images as $value) {
+
+        if ($value != '') {
+            $DB->create('anhsanpham', [
+                'url'        => $value,
+                'sanpham_id' => $id
+            ]);
+        }
+    }
 }
 
-$data = $DB->find('sanpham', $id);
+// add images
+
+
+
+
+$data   = $DB->find('sanpham', $id);
+$images = $DB->query("select * from anhsanpham where sanpham_id = $id ");
+
 
 if (!is_object($data)) {
-    die('Không tồn tại sản phẩm mục');
+    die('Không tồn tại sản phẩm');
 }
 
 
@@ -175,9 +199,9 @@ include('../../layouts/admin/header.php');
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnail">
-                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="thumbnail[2]">
+                                    <img id="thumbnail" alt="" class="img-fluid h-100" src="<?= url("public/uploads/images/" . $data->hinhanh) ?>">
+                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUpload">
+                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" value="<?= $data->hinhanh ?>" name="thumbnailUrl">
                                 </div>
                             </div>
                         </div>
@@ -186,31 +210,31 @@ include('../../layouts/admin/header.php');
                                 <label for="inputType7">Images</label>
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb d-flex">
-                                <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[1]">
-                                </div>
-                                <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[2]">
-                                </div>
-                                <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[3]">
-                                </div>
-                                <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[4]">
-                                </div>
-                                <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnail">
-                                </div>
+                                <?php $i = 0 ?>
+                                <?php while ($i < 5) : ?>
+                                    <?php
+                                    if (isset($images[$i]->url)) :
+                                    ?>
+                                        <div class="upload-thumb-canvas mr-3">
+                                            <img id="images-<?= $i ?>"  class="img-fluid h-100" src="<?= url("public/uploads/images/" . $images[$i]->url) ?>">
+                                            <input type="file" class="form-control upload-thumb-input images"  >
+                                            <input type="hidden" name="images[<?= $i ?>]" value="<?= $images[$i]->url ?>">
+                                        </div>
+                                        <?php $i++ ?>
+                                        <?php continue ?>
+                                    <?php endif ?>
+                                    <div class="upload-thumb-canvas mr-3">
+                                        <img id="images-<?= $i ?>" class="img-fluid h-100">
+                                        <input type="file" class="form-control upload-thumb-input images">
+                                        <input type="hidden" name="images[<?= $i ?>]">
+                                    </div>
+                                    <?php $i++ ?>
+                                <?php endwhile ?>
                             </div>
                         </div>
                         <div class="form-group row showcase_row_area">
                             <div class="col-md-2 showcase_text_area text-left">
-                                <button type="submit" name="create" class="btn btn-sm btn-success">Thêm mới</button>
+                                <button type="submit" name="create" class="btn btn-sm btn-success">Cập nhật</button>
                             </div>
                         </div>
                     </div>
@@ -250,4 +274,54 @@ include('../../layouts/admin/header.php');
     </style>
 
     <script>
+        let inputThumbnail = document.querySelector('input[name="thumbnailUpload"]');
+        let thumbnailUrl = document.querySelector('input[name="thumbnailUrl"]');
+        inputThumbnail.addEventListener('change', function() {
+            let thumbnail = document.querySelector('#thumbnail');
+
+            let url = "<?= url('admin/upload/index.php') ?>";
+            let formData = new FormData();
+            formData.append("thumbnailUpload", inputThumbnail.files[0]);
+            fetch(url, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    thumbnailUrl.value = data;
+                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    thumbnail.setAttribute("src", path);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        })
+
+        let inputImages = document.querySelectorAll('.images');
+        inputImages.forEach(function(item, index) {
+            item.addEventListener('change', function() {
+
+                let thumbnail = document.querySelector('#images-' + index);
+                let thumbnailUrl = document.querySelector(`input[name="images[${index}]"]`)
+                let url = "<?= url('admin/upload/index.php') ?>";
+                let formData = new FormData();
+                formData.append("thumbnailUpload", item.files[0]);
+                fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+
+                        thumbnailUrl.value = data;
+                        let path = "<?= url('public/uploads/images/') ?>" + data;
+                        thumbnail.setAttribute("src", path);
+
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            })
+        })
     </script>

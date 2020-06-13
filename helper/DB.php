@@ -20,6 +20,7 @@ class DB
             return;
         }
     }
+
     public function query($sql)
     {
         $query = $this->kn->query($sql);
@@ -62,7 +63,9 @@ class DB
             return 'Thao tác thất bại !';
         }
     }
-
+    public function lastId(){
+        return $this->kn->insert_id; 
+    }
 
     public function create($table, $data)
     {

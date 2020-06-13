@@ -14,12 +14,16 @@ $categories = $DB->query('SELECT * FROM danhmuc');
 
 if (Input::hasPost('create')) {
 
+
+    
     $tensanpham = Input::post('tensanpham');
     $mota       = Input::post('mota');
     $giaban     = Input::post('giaban');
     $soluong    = Input::post('soluong');
     $sale       = Input::post('sale');
     $danhmuc_id = Input::post('danhmuc_id');
+    $hinhanh    = Input::post('thumbnailUrl');
+    $images     = Input::post('images');
 
     Validator::required($tensanpham, "Vui lòng nhập tên sản phẩm")
         ->min($tensanpham, 1, "Tên sản phẩm quá ngắn")
@@ -29,7 +33,8 @@ if (Input::hasPost('create')) {
         ->numeric($giaban, "Giá bán không hợp lệ ")
         ->required($soluong, "Vui lòng nhập số lượng ")
         ->numeric($giaban, "Số lượng không hợp lệ ")
-        ->categoryRequired($danhmuc_id, "Vui lòng chọn loại sản phẩm");
+        ->categoryRequired($danhmuc_id, "Vui lòng chọn loại sản phẩm")
+        ->required($hinhanh, "Vui lòng chọn thumbnail");
 
 
     if (!Validator::anyErrors()) {
@@ -40,11 +45,25 @@ if (Input::hasPost('create')) {
             'soluong'    => $soluong,
             'danhmuc_id' => $danhmuc_id,
             'sale'       => $sale,
-            'hinhanh'    => '',
+            'hinhanh'    => $hinhanh,
             'danhgia'    => 5,
             'luotmua'    => 0,
             'user_id'    => Auth::user()->id,
         ]);
+
+        $productId = $DB->lastId();
+
+         // add images
+
+        foreach($images as $value){
+
+            if($value != ''){
+                $DB->create('anhsanpham',[
+                    'url'        => $value,
+                    'sanpham_id' => $productId
+                ]);
+            }
+        }
 
         if ($success === true) {
             $alertSuccess = "Thêm sản phẩm thành công";
@@ -159,9 +178,9 @@ include('../../layouts/admin/header.php');
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnail">
-                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="thumbnail[2]">
+                                    <img id="thumbnail" alt="" class="img-fluid h-100">
+                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUpload">
+                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUrl">
                                 </div>
                             </div>
                         </div>
@@ -171,24 +190,29 @@ include('../../layouts/admin/header.php');
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb d-flex">
                                 <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[1]">
+                                    <img class="img-fluid" id="images-0" alt="">
+                                    <input type="file" class="form-control upload-thumb-input images" id="inputT">
+                                    <input type="hidden" name="images[0]">
                                 </div>
                                 <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[2]">
+                                    <img class="img-fluid" id="images-1"  alt="">
+                                    <input type="file" class="form-control upload-thumb-input images" id="inputType7">
+                                    <input type="hidden" name="images[1]">
                                 </div>
                                 <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[3]">
+                                    <img class="img-fluid" id="images-2"  alt="">
+                                    <input type="file" class="form-control upload-thumb-input images" id="inputType7">
+                                    <input type="hidden" name="images[2]">
                                 </div>
                                 <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="images[4]">
+                                    <img class="img-fluid" id="images-3"  alt="">
+                                    <input type="file" class="form-control upload-thumb-input images" id="inputType7">
+                                    <input type="hidden" name="images[3]">
                                 </div>
                                 <div class="upload-thumb-canvas mr-3">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnail">
+                                    <img class="img-fluid"  id="images-4" alt="">
+                                    <input type="file" class="form-control upload-thumb-input images" id="inputType7">
+                                    <input type="hidden" name="images[4]">
                                 </div>
                             </div>
                         </div>
@@ -230,8 +254,62 @@ include('../../layouts/admin/header.php');
             width: 80px;
             height: 80px;
             overflow: hidden;
+            padding: 2px;
         }
     </style>
 
     <script>
+        let inputThumbnail = document.querySelector('input[name="thumbnailUpload"]');
+        let thumbnailUrl = document.querySelector('input[name="thumbnailUrl"]');
+        inputThumbnail.addEventListener('change', function() {
+            let thumbnail = document.querySelector('#thumbnail');
+
+            let url = "<?= url('admin/upload/index.php') ?>";
+            let formData = new FormData();
+            formData.append("thumbnailUpload", inputThumbnail.files[0]);
+            fetch(url, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    thumbnailUrl.value = data;
+                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    thumbnail.setAttribute("src", path);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        })
+
+        let inputImages = document.querySelectorAll('.images');
+
+        inputImages.forEach(function(item, index) {
+            item.addEventListener('change', function() {
+                
+                let thumbnail = document.querySelector('#images-' + index);
+                let thumbnailUrl = document.querySelector(`input[name="images[${index}]"]`)
+
+
+                let url = "<?= url('admin/upload/index.php') ?>";
+                let formData = new FormData();
+                formData.append("thumbnailUpload", item.files[0]);
+                fetch(url, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+
+                        thumbnailUrl.value = data;
+                        let path = "<?= url('public/uploads/images/') ?>" + data;
+                        thumbnail.setAttribute("src", path);
+                        
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            })
+        })
     </script>

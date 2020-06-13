@@ -5,7 +5,6 @@
         'password' => '',
         'name'   => 'shop',
     ];
-
     const  BASE_URL = 'http://shop.loc/';
 
 ?>

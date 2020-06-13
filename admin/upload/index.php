@@ -1,19 +1,17 @@
 <?php
-if (isset($_POST) ) {
-    $duoi = explode('.', $_FILES['file']['name']); // tách chuỗi khi gặp dấu .
-    $duoi = $duoi[(count($duoi) - 1)]; //lấy ra đuôi file
-    // Kiểm tra xem có phải file ảnh không
-    if ($duoi === 'jpg' || $duoi === 'png' || $duoi === 'gif') {
-        // tiến hành upload
-        if (move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name'])) {
-            // Nếu thành công
-            die('Upload thành công file: ' . $_FILES['file']['name']); //in ra thông báo + tên file
-        } else { // nếu không thành công
-            die('Có lỗi!'); // in ra thông báo
-        }
-    } else { // nếu không phải file ảnh
-        die('Chỉ được upload ảnh'); // in ra thông báo
+header('Content-Type: application/json; charset=utf-8');
+
+if (isset($_FILES['thumbnailUpload'])) {
+    $file_name = rand(100, 10000) . '-' . $_FILES['thumbnailUpload']['name'];
+    $file_tmp = $_FILES['thumbnailUpload']['tmp_name'];
+    $file_type = $_FILES['thumbnailUpload']['type'];
+    $file_erro = $_FILES['thumbnailUpload']['error'];
+    if ($file_erro == 0) {
+        $part = $_SERVER['DOCUMENT_ROOT'] . '/PHP_SHOP/public/uploads/images/';
+        $data['avatar'] = $file_name;
+        move_uploaded_file($file_tmp, $part . $file_name);
+        echo json_encode($file_name);
+        return;
     }
-} else {
-    die('Lock'); // nếu không phải post method
 }
+echo('upload err !');   
