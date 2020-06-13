@@ -26,13 +26,13 @@ include('../../layouts/admin/header.php');
       </th>
       <th class="th-sm">Tên sản phẩm
       </th>
-      <th class="th-sm">Ảnh 
+      <th class="th-sm text-center">Ảnh 
       </th>
-      <th class="th-sm">Lượt mua
+      <th class="th-sm text-center">Lượt mua
       </th>
-      <th class="th-sm">Số lượng
+      <th class="th-sm text-center">Số lượng
       </th>
-      <th class="th-sm ">Giá bán
+      <th class="th-sm text-center ">Giá bán (vnđ)
       </th>
       <th class="th-sm text-center">Thời gian
       </th>
@@ -48,11 +48,11 @@ include('../../layouts/admin/header.php');
     <tr>
       <td ><?= $i ?></td>
       <td ><?= $item->tensanpham ?></td>
-      <td ><?= $item->hinhanh ?></td>
-      <td ><?= $item->luotmua ?></td>
-      <td ><?= $item->soluong ?></td>
-      <td ><?= $item->giaban ?></td>
-      <td ><?= formatDate($item->created_at) ?></td>
+      <td class="text-center"><img style="width:50px" src="<?= url('public/uploads/images/'.$item->hinhanh) ?>"></td>
+      <td class="text-center"><?= $item->luotmua ?></td>
+      <td class="text-center"><?= $item->soluong ?></td>
+      <td class="text-center"><?= $item->giaban ?></td>
+      <td class="text-center"><?= formatDate($item->created_at) ?></td>
       <td class="text-center" style="width:50px">
         <a href="<?= url("admin/product/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
       </td>

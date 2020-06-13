@@ -77,7 +77,7 @@ $title = "Thêm mới danh mục sản phẩm";
 include('../../layouts/admin/header.php');
 ?>
 <div class="d-flex justify-content-between mb-4">
-    <h4>Cập nhật sản phẩm</h4>
+    <h4>Thêm sản phẩm</h4>
     <a href="<?= url('admin/product') ?>" class="btn btn-primary btn-sm"><i class="mdi mdi-arrow-left-bold"></i></a>
 </div>
 <div class="container">

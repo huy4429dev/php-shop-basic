@@ -195,18 +195,19 @@
           </ul>
         </li>
         <li>
-          <a href="#">
-            <span class="link-title">Khách hàng</span>
-            <i class="mdi mdi-account-box link-icon"></i>
-          </a>
-        </li>
-
-        <li>
           <a href="">
             <span class="link-title">Đơn hàng</span>
             <i class="mdi mdi-cart link-icon"></i>
           </a>
         </li>
+        <li>
+          <a href="<?= url('admin/customer/') ?>">
+            <span class="link-title">Khách hàng</span>
+            <i class="mdi mdi-account-box link-icon"></i>
+          </a>
+        </li>
+
+     
         <li>
           <a href="">
             <span class="link-title">Báo cáo</span>

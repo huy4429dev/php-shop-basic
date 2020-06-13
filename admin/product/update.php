@@ -52,7 +52,7 @@ if (Input::hasPost('create')) {
         ], $id);
 
         if ($success === true) {
-            $alertSuccess = "Thêm sản phẩm thành công";
+            $alertSuccess = "Cập nhật sản phẩm thành công";
         } else {
             $alertErr     = $success;
         }
@@ -74,7 +74,6 @@ if (Input::hasPost('create')) {
     }
 }
 
-// add images
 
 
 
