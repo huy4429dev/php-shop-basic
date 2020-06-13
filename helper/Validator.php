@@ -40,6 +40,7 @@ class Validator{
     }
 
     public static function isPhone($value,$msg){
+        
         if(!preg_match("/^[0-9]{3}[0-9]{4}[0-9]{4}$/", $value)) {
             self::$errors[] = $msg;
         }
