@@ -9,6 +9,13 @@ if(!Auth::user()){
   
 }
 
+$currentMonth = date('m');
+$currentYear = date('Y');
+
+$sql = "SELECT count(id) as khachhangmoi from khachhang where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth  ";
+
+$newCustomer = $DB->query($sql); // lay ra so khach hang moi
+
 
 include('../../layouts/admin/header.php');
 
@@ -20,7 +27,7 @@ include('../../layouts/admin/header.php');
             <div class="row">
               <div class="col-12 py-5">
                 <h4>Dashboard</h4>
-                <p class="text-gray mt-3">Welcome aboard, <?php print_r(Auth::user()->name) ?></p>
+                <p class="text-gray mt-3">Xin chào , <?php print_r(Auth::user()->name) ?></p>
               </div>
             </div>
             <div class="row">
@@ -28,10 +35,9 @@ include('../../layouts/admin/header.php');
                 <div class="grid">
                   <div class="grid-body text-gray">
                     <div class="d-flex justify-content-between">
-                      <p>30%</p>
-                      <p>+06.2%</p>
+                      <span><?= $newCustomer[0]->khachhangmoi ?></span>
                     </div>
-                    <p class="text-black">Traffic</p>
+                    <p class="text-black">Khách hàng mới</p>
                     <div class="wrapper w-50 mt-4">
                       <canvas height="45" id="stat-line_1"></canvas>
                     </div>

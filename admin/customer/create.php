@@ -8,8 +8,10 @@ if (!Auth::user()) {
     Redirect::url('admin/account/login.php');
 }
 
-$id   = Input::get('id');
+
+
 $categories = $DB->query('SELECT * FROM danhmuc');
+
 
 
 if (Input::hasPost('create')) {

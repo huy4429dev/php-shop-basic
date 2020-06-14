@@ -7,7 +7,7 @@ include('./layouts/page/header.php');
 ?>
 
 <div class="main">
-        <h2>HOME PAGE</h2>
+        <h2>Trang liên hệ</h2>
 
 </div>
 
