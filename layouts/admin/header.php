@@ -195,7 +195,7 @@
           </ul>
         </li>
         <li>
-          <a href="">
+          <a href="<?= url('admin/order') ?>">
             <span class="link-title">Đơn hàng</span>
             <i class="mdi mdi-cart link-icon"></i>
           </a>
@@ -209,10 +209,18 @@
 
      
         <li>
-          <a href="">
+          <a href="#sample-pages-x" data-toggle="collapse" aria-expanded="false">
             <span class="link-title">Báo cáo</span>
             <i class="mdi mdi-flask link-icon"></i>
           </a>
+          <ul class="collapse navigation-submenu" id="sample-pages-x">
+            <li>
+              <a href="<?= url('admin/report/salesReport.php') ?>">Báo cáo doanh thu</a>
+            </li>
+            <li>
+              <a href="<?= url('admin/report/inventoryReport.php') ?>">Báo cáo tồn kho</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="<?= url('admin/blog') ?>">

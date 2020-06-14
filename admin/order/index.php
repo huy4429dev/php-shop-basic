@@ -8,7 +8,7 @@ if (!Auth::user()) {
     Redirect::url('admin/account/login.php');
 }
 
-$sql = "SELECT * FROM khachhang";
+$sql = "SELECT donhang.*, khachhang.hoten, khachhang.phone FROM donhang  join  khachhang on donhang.khachhang_id = khachhang.id";
 $data = $DB->query($sql);
 
 $title = "Quản lý khách hàng";
@@ -16,8 +16,7 @@ include('../../layouts/admin/header.php');
 
 ?>
 <div class="d-flex justify-content-between mb-4">
-    <h4>Quản lý khách hàng </h4>
-    <a href="<?= url('admin/customer/create.php') ?> " class="btn btn-primary btn-sm">Thêm mới</a>
+    <h4>Quản lý đơn hàng </h4>
 </div>
 <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
@@ -26,17 +25,13 @@ include('../../layouts/admin/header.php');
             </th>
             <th class="th-sm">Họ tên
             </th>
-            <th class="th-sm">Ảnh đại diện
-            </th>
             <th class="th-sm">Điện thoại
             </th>
-            <th class="th-sm">Email
-            </th>
-            <th class="th-sm ">Địa chỉ
+            <th class="th-sm">Tổng tiền ( vnđ )
             </th>
             <th class="th-sm text-center">Thời gian
             </th>
-            <th class="th-sm text-center">Hành động</th>
+            <th class="th-sm text-center">Trạng thái</th>
             <th class="th-sm text-center">Hành động</th>
         </tr>
     </thead>
@@ -48,16 +43,14 @@ include('../../layouts/admin/header.php');
                 <tr>
                     <td><?= $i ?></td>
                     <td><?= $item->hoten ?></td>
-                    <td><img style="width:50px" src="<?= url('public/uploads/images/' . $item->avatar) ?>"></td>
                     <td><?= $item->phone ?></td>
-                    <td><?= $item->email ?></td>
-                    <td data-toggle="modal" data-target="#basicExampleModal-<?= $item->id ?>" class="d-flex justify-content-between"><?= strlen($item->diachi) > 5 ?  substr($item->diachi, 0, 5) . '...' . '<i style="cursor:pointer" class="mdi mdi-eye"></i>' : $item->diachi.' . <i style="cursor:pointer" class="mdi mdi-eye"></i>'?></td>
-                    <td><?= formatDate($item->created_at) ?></td>
+                    <td><?= number_format($item->tongtien) ?></td>
+                    <td class="text-center"><?= formatDate($item->created_at) ?></td>
                     <td class="text-center" style="width:50px">
-                        <a href="<?= url("admin/customer/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
+                        <?= $item->trangthai == 1  ? "<b class='badge badge-success status-Content'>Đã xử lý</b>" : "<b class='badge badge-warning status-Content'>Chưa xử lý</b>"  ?>
                     </td>
                     <td class="text-center" style="width:50px">
-                        <a href="#"><b class='badge badge-danger status-Content' type="button" data-toggle="modal" data-target="#exampleModal-<?= $item->id ?>">Xóa</b></a>
+                        <a href="<?= url("admin/order/detail.php?id=$item->id") ?>"><b class='badge badge-primary status-Content'>Chi tiết</b></a>
                     </td>
                 </tr>
     </tbody>

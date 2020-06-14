@@ -33,20 +33,6 @@ include('../../layouts/admin/header.php');
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>11</td>
-            <td>áđá</td>
-            <td>1áđá1</td>
-            <td>1áđá1</td>
-            <td>1áđáád1</td>
-            <td>1ád1</td>
-            <td class="text-center" style="width:50px">
-                <a href="<?= url('admin/category/update.php') ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
-            </td>
-            <td class="text-center" style="width:50px">
-                <a href="#"><b class='badge badge-danger status-Content' type="button" data-toggle="modal" data-target="#exampleModal">Xóa</b></a>
-            </td>
-        </tr>
     </tbody>
 </table>
 <!-- Modal -->

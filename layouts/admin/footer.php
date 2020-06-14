@@ -31,11 +31,10 @@
     <script src="<?= BASE_URL.'/public/libs/js/jquery-3.5.1.min.js'?>"></script>
     <script src="<?= BASE_URL.'/public/libs/js/jquery-ui.js'?>"></script>
     <script src="<?= BASE_URL.'/public/libs/js/jquery.dataTables.min.js'?>"></script>
+
+    <script src="<?= BASE_URL."/layouts/admin/assets/js/template.js" ?>"></script>
+    <script src="<?= BASE_URL."/layouts/admin/assets/js/charts/chartjs.js"?>"></script>
     
-    <?php 
-        if(isset($script)){
-          echo($script);
-        }
-    ?>
+
   </body>
 </html>

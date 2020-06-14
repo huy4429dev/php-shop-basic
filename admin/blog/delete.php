@@ -11,16 +11,16 @@ if (!Auth::user()) {
     
 $id   = Input::get('id');
 
-$data = $DB->find('lienhe', $id);
+$data = $DB->find('baiviet', $id);
 
 if (!is_object($data)) {
-    die('Không tồn tại liên hệ');
+    die('Không tồn tại bài viết');
 }
 
 $deleted = $DB->delete('lienhe',$id);
 
 if($deleted === true){
-    Redirect::url('admin/contact');
+    Redirect::url('admin/blog');
 }
 
 die('Vui lòng thử lại');

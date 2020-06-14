@@ -11,16 +11,15 @@ if (!Auth::user()) {
     
 $id   = Input::get('id');
 
-$data = $DB->find('lienhe', $id);
-
+$data = $DB->find('donhang', $id);
 if (!is_object($data)) {
-    die('Không tồn tại liên hệ');
+    die('Không tồn tại đơn hàng');
 }
 
-$deleted = $DB->delete('lienhe',$id);
+$updated = $DB->update('donhang',['trangthai' => true],$id);
 
-if($deleted === true){
-    Redirect::url('admin/contact');
+if($updated === true){
+    Redirect::url('admin/order');
 }
 
 die('Vui lòng thử lại');

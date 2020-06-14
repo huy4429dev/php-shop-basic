@@ -48,7 +48,7 @@ include('../../layouts/admin/header.php');
           <td><?= $item->hoten ?></td>
           <td><?= $item->phone ?></td>
           <td><?= $item->email ?></td>
-          <td data-toggle="modal" style="cursor:pointer" data-target="#basicExampleModal-<?= $item->id ?>" class="d-flex justify-content-between show-Content"><?= strlen($item->noidung) > 5 ?  substr($item->noidung, 0, 5) . '...' . '<i style="cursor:pointer" class="mdi mdi-eye "></i>' : $item->diachi ?></td>
+          <td data-toggle="modal" style="cursor:pointer" data-target="#basicExampleModal-<?= $item->id ?>" class="d-flex justify-content-between show-Content"><?= strlen($item->noidung) > 5 ?  substr($item->noidung, 0, 5) . '...'  : $item->noidung ?><i style="cursor:pointer" class="mdi mdi-eye "></i></td>
           <td class="text-center"><?= formatDate($item->created_at) ?></td>
           <td class="text-center" style="width:50px">
             <?= !$item->trangthai === true ? " <span style='width:80px' class='badge badge-warning text-center mx-auto status-Content'>Chưa xem</span> " : " <span style='width:80px' class='badge badge-success text-center mx-auto status-Content'>Đã xem</span> " ?>
