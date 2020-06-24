@@ -2,6 +2,8 @@
 
 include('./autoload/Autoload.php');
 
+
+$title = "Giới thiệu";
 include('./layouts/page/header.php');
 
 ?>

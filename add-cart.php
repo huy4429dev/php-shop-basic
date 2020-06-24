@@ -3,15 +3,13 @@
 include('./autoload/Autoload.php');
 
 $id_sanpham = Input::get('id');
-die($id_sanpham);
-
 $sanpham    = $DB->find('sanpham', $id_sanpham);
 if (is_object($sanpham)) {
     /**
      * 
      * Kiểm tra sản phẩm đã có trong giỏ hàng 
      */
-    $so_luong_mua          = Input::get('so_luong');
+    $so_luong_mua  = Input::get('so_luong') ?? 1;
 
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $product) {
@@ -20,7 +18,7 @@ if (is_object($sanpham)) {
                 $_SESSION['cart'][$id_sanpham]->so_luong_mua = $product->so_luong_mua + $so_luong_mua;
                 $_SESSION['cart'][$product->id]->thanh_tien  =  $_SESSION['cart'][$id_sanpham]->so_luong_mua * ($product->gia_ban * ((100 - $product->sale) / 100));
 
-                header('location: giohang.php');
+                header('location: cart.php');
             } else {
 
                 /**
@@ -35,7 +33,7 @@ if (is_object($sanpham)) {
                  */
                 $_SESSION['cart'][$id_sanpham] = $sanpham;
 
-                header('location: giohang.php');
+                header('location: cart.php');
             }
         }
     }
@@ -53,7 +51,7 @@ if (is_object($sanpham)) {
      */
     $_SESSION['cart'][$id_sanpham] = $sanpham;
 
-    header('location: giohang.php');
+    header('location: cart.php');
 
 
 

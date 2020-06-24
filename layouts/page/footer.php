@@ -1,4 +1,4 @@
-		<!-- Start Footer -->
+<!-- Start Footer -->
 		<footer id="footer">
 		    <div class="footer cmsmasters_color_scheme_footer cmsmasters_footer_small">
 		        <div class="footer_inner">
@@ -24,7 +24,7 @@
 		                    </ul>
 		                </div>
 		            </div> <span class="footer_copyright copyright">
-		                This is a sample website - cmsmasters © 2020 / All Rights Reserved </span>
+		                This is a sample website -  JvbVietNam  © 2020 / All Rights Reserved </span>
 		        </div>
 		    </div>
 		</footer>
