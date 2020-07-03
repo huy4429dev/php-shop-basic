@@ -47,10 +47,10 @@ include('../../layouts/admin/header.php');
                 <?php foreach($data as $item): ?>
                     <tr>
                         <td><?= $item->tensanpham ?></td>
-                        <td class="text-center"><?= $item->soluong ?></td>
-                        <td  style="width:100px"><?= number_format($item->dongia) ?></td>
+                        <td class="text-center"><?= $item->soluongmua ?></td>
+                        <td  style="width:100px"><?= number_format($item->giaban) ?></td>
                         <td style="width:100px"><?= $item->sale ?>%</td>
-                        <td style="width:100px"><?= number_format($item->dongia * $item->soluong * (100 - $item->sale )/100) ?></td>
+                        <td style="width:100px"><?= number_format($item->giaban * $item->soluongmua * (100 - $item->sale )/100) ?></td>
                         <td class="actions">
                             <i class="mdi mdi-dots-vertical"></i>
                         </td>

@@ -127,6 +127,14 @@ if(is_array($cart)){
             background-attachment: scroll;
             background-size: cover;
         }
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        }
+
+        h1,h2,h3,h4,h5,h6,input, textarea, button, li, a, label {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        
+        }
     </style>
 
 
@@ -190,12 +198,12 @@ if(is_array($cart)){
     <div class="cmsmasters_header_search_form">
         <span class="cmsmasters_header_search_form_close cmsmasters_theme_icon_cancel"></span>
         <div class="yith-ajaxsearchform-container">
-            <form role="search" method="get" class="yith-ajaxsearchform_form" action="https://devicer.cmsmasters.net/">
+            <form role="search" method="get" class="yith-ajaxsearchform_form" action="">
                 <div class="yith-ajaxsearchform-container">
                     <div class="yith-ajaxsearchform-select">
 
                         <select class="search_categories selectbox" name="product_cat">
-                            <option value="" selected='selected'>All Categories</option>
+                            <option value="" selected='selected'>Danh mục sản phẩm</option>
                             <option value="acoustics">Acoustics</option>
                             <option value="action-camcorders">Action Camcorders</option>
                             <option value="apple-smart-watches">Apple</option>
@@ -260,18 +268,6 @@ if(is_array($cart)){
                     <div class="header_top_outer">
                         <div class="header_top_inner">
                             <div class="top_nav_wrap"><a class="responsive_top_nav" href="javascript:void(0)"><span></span></a>
-                                <nav>
-                                    <div class="menu-top-line-navigation-container">
-                                        <ul id="top_line_nav" class="top_line_nav">
-                                            <li id="menu-item-14984" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14984">
-                                                <a href="my-account/index.html"><span class="nav_item_wrap">Sign
-                                                        Up</span></a></li>
-                                            <li id="menu-item-14985" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14985">
-                                                <a href="my-account/index.html"><span class="nav_item_wrap">Log
-                                                        in</span></a></li>
-                                        </ul>
-                                    </div>
-                                </nav>
                             </div>
                             <div class="header_top_meta">
                                 <div class="meta_wrap">Chào mừng đến với JvbVietNam <span class="cmsmasters_customer_care">Chăm sóc khách hàng</span> <a href="tel:1-800-123-4567">09843 434 434</a></div>
@@ -328,12 +324,12 @@ if(is_array($cart)){
                                 <div class="cmsmasters_header_search_form">
                                     <span class="cmsmasters_header_search_form_close cmsmasters_theme_icon_cancel"></span>
                                     <div class="yith-ajaxsearchform-container">
-                                        <form role="search" method="get" class="yith-ajaxsearchform_form" action="https://devicer.cmsmasters.net/">
+                                        <form role="search" method="get" class="yith-ajaxsearchform_form" action="f">
                                             <div class="yith-ajaxsearchform-container">
                                                 <div class="yith-ajaxsearchform-select">
 
                                                     <select class="search_categories selectbox" name="product_cat">
-                                                        <option value="" selected='selected'>All Categories</option>
+                                                        <option value="" selected='selected'>Danh mục sản phẩm</option>
                                                         <option value="acoustics">Acoustics</option>
                                                         <option value="action-camcorders">Action Camcorders</option>
                                                         <option value="apple-smart-watches">Apple</option>
@@ -377,7 +373,7 @@ if(is_array($cart)){
                                                 </div>
                                                 <div class="search_bar_wrap">
                                                     <div class="search-navigation search_field">
-                                                        <input type="search" value="" name="s" class="yith-s" placeholder="Search for products" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
+                                                        <input type="search" value="" name="s" class="yith-s" placeholder="Tìm kiếm sản phẩm" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
                                                     </div>
                                                     <div class="search_button">
                                                         <button type="submit" class="cmsmasters-icon-search" value=""></button>
@@ -395,19 +391,7 @@ if(is_array($cart)){
                                     <div class="menu-primary-navigation-container">
                                         <ul id="navigation_mid" class="mid_nav navigation">
                                             <li id="menu-item-14922" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-14922 menu-item-depth-0">
-                                                <a><span class="nav_item_wrap"><span class="nav_title">Home</span></span></a>
-                                                <ul class="sub-menu">
-                                                    <li id="menu-item-14982" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14388 current_page_item menu-item-14982 menu-item-depth-1">
-                                                        <a href="index.html"><span class="nav_item_wrap"><span class="nav_title">Home 1</span></span></a> </li>
-                                                    <li id="menu-item-14925" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14925 menu-item-depth-1">
-                                                        <a href="style-2/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 2</span></span></a> </li>
-                                                    <li id="menu-item-14926" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14926 menu-item-depth-1">
-                                                        <a href="style-3/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 3</span></span></a> </li>
-                                                    <li id="menu-item-14923" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14923 menu-item-depth-1">
-                                                        <a href="style-4/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 4</span></span></a> </li>
-                                                    <li id="menu-item-14924" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14924 menu-item-depth-1">
-                                                        <a href="style-5/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 5</span></span></a> </li>
-                                                </ul>
+                                                <a href="index.php"><span class="nav_item_wrap"><span class="nav_title">Trang chủ</span></span></a>
                                             </li>
                                             <li id="menu-item-14881" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14881 menu-item-depth-0">
                                                 <a><span class="nav_item_wrap"><span class="nav_title">Features</span></span></a>
@@ -615,212 +599,19 @@ if(is_array($cart)){
                                 <nav>
                                     <div class="menu-primary-navigation-container">
                                         <ul id="navigation" class="bot_nav navigation">
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-14922 menu-item-depth-0">
-                                                <a><span class="nav_item_wrap"><span class="nav_title">Home</span></span></a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-14388 current_page_item menu-item-14982 menu-item-depth-1">
-                                                        <a href="index.html"><span class="nav_item_wrap"><span class="nav_title">Home 1</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14925 menu-item-depth-1">
-                                                        <a href="style-2/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 2</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14926 menu-item-depth-1">
-                                                        <a href="style-3/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 3</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14923 menu-item-depth-1">
-                                                        <a href="style-4/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 4</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14924 menu-item-depth-1">
-                                                        <a href="style-5/index.html"><span class="nav_item_wrap"><span class="nav_title">Home 5</span></span></a> </li>
-                                                </ul>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor">
+                                                <a href="index.php"><span class="nav_item_wrap"><span class="nav_title">Trang chủ</span></span></a>
                                             </li>
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14881 menu-item-depth-0">
-                                                <a><span class="nav_item_wrap"><span class="nav_title">Features</span></span></a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14971 menu-item-depth-1">
-                                                        <a href="about-us/index.html"><span class="nav_item_wrap"><span class="nav_title">About Us</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14978 menu-item-depth-1">
-                                                        <a href="news/index.html"><span class="nav_item_wrap"><span class="nav_title">News</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14979 menu-item-depth-1">
-                                                        <a href="contacts/index.html"><span class="nav_item_wrap"><span class="nav_title">Contacts</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14981 menu-item-depth-1">
-                                                        <a href="faq/index.html"><span class="nav_item_wrap"><span class="nav_title">FAQ</span></span></a> </li>
-                                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14980 menu-item-depth-1">
-                                                        <a href="sale/index.html"><span class="nav_item_wrap"><span class="nav_title">Sale</span></span></a> </li>
-                                                </ul>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14881 menu-item-depth-0">
+                                                <a href="shop.php"><span class="nav_item_wrap"><span class="nav_title">Cửa hàng</span></span></a>
                                             </li>
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14877 menu-item-mega menu-item-mega-cols-four menu-item-depth-0">
-                                                <a><span class="nav_item_wrap"><span class="nav_title">Shortcodes</span></span></a>
-                                                <div class="menu-item-mega-container">
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14887 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">1</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14939 menu-item-depth-subitem">
-                                                                    <a href="blog-shortcode/index.html"><span class="nav_item_wrap"><span class="nav_title">Blog
-                                                                                Shortcode</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14940 menu-item-depth-subitem">
-                                                                    <a href="buttons-icons/index.html"><span class="nav_item_wrap"><span class="nav_title">Buttons &#038;
-                                                                                Icons</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14941 menu-item-depth-subitem">
-                                                                    <a href="clients/index.html"><span class="nav_item_wrap"><span class="nav_title">Clients</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14942 menu-item-depth-subitem">
-                                                                    <a href="contact-forms/index.html"><span class="nav_item_wrap"><span class="nav_title">Contact
-                                                                                forms</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14943 menu-item-depth-subitem">
-                                                                    <a href="counters-progress-bars/index.html"><span class="nav_item_wrap"><span class="nav_title">Counters &#038;
-                                                                                Progress Bars</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14944 menu-item-depth-subitem">
-                                                                    <a href="custom-html-css-js/index.html"><span class="nav_item_wrap"><span class="nav_title">Custom HTML, CSS,
-                                                                                JS</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14945 menu-item-depth-subitem">
-                                                                    <a href="dividers/index.html"><span class="nav_item_wrap"><span class="nav_title">Dividers</span></span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14878 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">2</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14951 menu-item-depth-subitem">
-                                                                    <a href="embedded/index.html"><span class="nav_item_wrap"><span class="nav_title">Embedded</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14952 menu-item-depth-subitem">
-                                                                    <a href="featured-blocks/index.html"><span class="nav_item_wrap"><span class="nav_title">Featured
-                                                                                Blocks</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14950 menu-item-depth-subitem">
-                                                                    <a href="gallery/index.html"><span class="nav_item_wrap"><span class="nav_title">Gallery</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14949 menu-item-depth-subitem">
-                                                                    <a href="google-maps/index.html"><span class="nav_item_wrap"><span class="nav_title">Google
-                                                                                Maps</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14948 menu-item-depth-subitem">
-                                                                    <a href="icon-boxes/index.html"><span class="nav_item_wrap"><span class="nav_title">Icon
-                                                                                Boxes</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14947 menu-item-depth-subitem">
-                                                                    <a href="icon-lists/index.html"><span class="nav_item_wrap"><span class="nav_title">Icon
-                                                                                Lists</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14946 menu-item-depth-subitem">
-                                                                    <a href="images/index.html"><span class="nav_item_wrap"><span class="nav_title">Images</span></span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14879 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">3</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14953 menu-item-depth-subitem">
-                                                                    <a href="notice-boxes/index.html"><span class="nav_item_wrap"><span class="nav_title">Notice
-                                                                                Boxes</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14960 menu-item-depth-subitem">
-                                                                    <a href="portfolio-shortcode/index.html"><span class="nav_item_wrap"><span class="nav_title">Portfolio
-                                                                                Shortcode</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14954 menu-item-depth-subitem">
-                                                                    <a href="posts-or-projects-slider/index.html"><span class="nav_item_wrap"><span class="nav_title">Posts or Projects
-                                                                                Slider</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14955 menu-item-depth-subitem">
-                                                                    <a href="pricing-tables/index.html"><span class="nav_item_wrap"><span class="nav_title">Pricing
-                                                                                Tables</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14956 menu-item-depth-subitem">
-                                                                    <a href="profiles/index.html"><span class="nav_item_wrap"><span class="nav_title">Profiles</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14958 menu-item-depth-subitem">
-                                                                    <a href="quotes/index.html"><span class="nav_item_wrap"><span class="nav_title">Quotes</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14959 menu-item-depth-subitem">
-                                                                    <a href="sidebar/index.html"><span class="nav_item_wrap"><span class="nav_title">Sidebars</span></span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14880 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">4</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14957 menu-item-depth-subitem">
-                                                                    <a href="sliders/index.html"><span class="nav_item_wrap"><span class="nav_title">Sliders</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14965 menu-item-depth-subitem">
-                                                                    <a href="social-sharing/index.html"><span class="nav_item_wrap"><span class="nav_title">Social
-                                                                                Sharing</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14964 menu-item-depth-subitem">
-                                                                    <a href="special-headings/index.html"><span class="nav_item_wrap"><span class="nav_title">Special
-                                                                                Headings</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14963 menu-item-depth-subitem">
-                                                                    <a href="tables/index.html"><span class="nav_item_wrap"><span class="nav_title">Tables</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14962 menu-item-depth-subitem">
-                                                                    <a href="tabs-tours/index.html"><span class="nav_item_wrap"><span class="nav_title">Tabs &#038;
-                                                                                Tours</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14961 menu-item-depth-subitem">
-                                                                    <a href="toggles-accordions/index.html"><span class="nav_item_wrap"><span class="nav_title">Toggles &#038;
-                                                                                Accordions</span></span></a> </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14881 menu-item-depth-0">
+                                                <a href="blog.php"><span class="nav_item_wrap"><span class="nav_title">Tin tức</span></span></a>
                                             </li>
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14882 menu-item-mega menu-item-mega-cols-four menu-item-depth-0">
-                                                <a><span class="nav_item_wrap"><span class="nav_title">Post
-                                                            Types</span></span></a>
-                                                <div class="menu-item-mega-container">
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14883 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">Blog</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14968 menu-item-depth-subitem">
-                                                                    <a href="standard-blog/index.html"><span class="nav_item_wrap"><span class="nav_title">Standard
-                                                                                Blog</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14967 menu-item-depth-subitem">
-                                                                    <a href="masonry-blog/index.html"><span class="nav_item_wrap"><span class="nav_title">Masonry
-                                                                                Blog</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14966 menu-item-depth-subitem">
-                                                                    <a href="timeline-blog/index.html"><span class="nav_item_wrap"><span class="nav_title">Timeline
-                                                                                Blog</span></span></a> </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14884 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">Projects
-                                                                        Grid</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14970 menu-item-depth-subitem">
-                                                                    <a href="projects-grid/index.html"><span class="nav_item_wrap"><span class="nav_title">Large
-                                                                                Gap</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14972 menu-item-depth-subitem">
-                                                                    <a href="no-gap-projects-grid/index.html"><span class="nav_item_wrap"><span class="nav_title">No
-                                                                                Gap</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14969 menu-item-depth-subitem">
-                                                                    <a href="1-pixel-gap-projects-grid/index.html"><span class="nav_item_wrap"><span class="nav_title">1 Pixel
-                                                                                Gap</span></span></a> </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14885 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">Masonry
-                                                                        Puzzle</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14973 menu-item-depth-subitem">
-                                                                    <a href="large-gap-masonry/index.html"><span class="nav_item_wrap"><span class="nav_title">Large
-                                                                                Gap</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14974 menu-item-depth-subitem">
-                                                                    <a href="no-gap-masonry/index.html"><span class="nav_item_wrap"><span class="nav_title">No
-                                                                                Gap</span></span></a> </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14977 menu-item-depth-subitem">
-                                                                    <a href="1-pixel-gap-masonry/index.html"><span class="nav_item_wrap"><span class="nav_title">1 Pixel
-                                                                                Gap</span></span></a> </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-14886 menu-item-depth-1">
-                                                            <a><span class="nav_item_wrap"><span class="nav_title">Profiles</span></span></a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14975 menu-item-depth-subitem">
-                                                                    <a href="horizontal/index.html"><span class="nav_item_wrap"><span class="nav_title">Horizontal</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14976 menu-item-depth-subitem">
-                                                                    <a href="vertical/index.html"><span class="nav_item_wrap"><span class="nav_title">Vertical</span></span></a>
-                                                                </li>
-                                                                <li class="menu-item menu-item-type-post_type menu-item-object-profile menu-item-14983 menu-item-depth-subitem">
-                                                                    <a href="profile/alice-bohm/index.html"><span class="nav_item_wrap"><span class="nav_title">Open
-                                                                                Profile</span></span></a> </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-14881 menu-item-depth-0">
+                                                <a href="contact.php"><span class="nav_item_wrap"><span class="nav_title">Liên hệ</span></span></a>
+                                                <a href="about.php"><span class="nav_item_wrap"><span class="nav_title">Giới thiệu</span></span></a>
                                             </li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14937 menu-item-depth-0">
-                                                <a href="shop/index.html"><span class="nav_item_wrap"><span class="nav_title">Shop</span></span></a></li>
                                         </ul>
                                     </div>
                                 </nav>

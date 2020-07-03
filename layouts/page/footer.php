@@ -1,3 +1,64 @@
+   <!-- Start Bottom -->
+   <div id="bottom" class="cmsmasters_color_scheme_footer">
+        <div class="bottom_bg">
+            <div class="bottom_outer">
+                <div class="bottom_inner sidebar_layout_14141414">
+                    <aside id="text-2" class="widget widget_text">
+                        <h3 class="widgettitle">Products</h3>
+                        <div class="textwidget">
+                            <ul>
+                                <li><a href="product/apple-watch-series/">Apple Watch Series</a></li>
+                                <li><a href="product/refurbished-ipad-4th/">Refurbished iPad 4th</a></li>
+                                <li><a href="product/apple-9-7-ipad/">Apple 9.7&#8243; iPad</a></li>
+                                <li><a href="product/apple-iphone-6s-16gb/">Apple iPhone 6s 16GB</a></li>
+                                <li><a href="product/apple-magic-mouse/">Apple Magic Mouse</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <aside id="text-4" class="widget widget_text">
+                        <h3 class="widgettitle">Customer Service</h3>
+                        <div class="textwidget">
+                            <ul>
+                                <li><a href="news/">News</a></li>
+                                <li><a href="faq/">FAQ</a></li>
+                                <li><a href="shop/">Shop</a></li>
+                                <li><a href="about-us/">About us</a></li>
+                                <li><a href="contacts/">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <aside id="text-3" class="widget widget_text">
+                        <h3 class="widgettitle">Socials</h3>
+                        <div class="textwidget">
+                            <ul>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">YouTube</a></li>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">Snapchat</a></li>
+                                <li><a href="#">Facebook</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <aside id="text-5" class="widget widget_text">
+                        <h3 class="widgettitle">Customer Care</h3>
+                        <div class="textwidget">
+                            <ul>
+                                <li><a href="sale/">Sale</a></li>
+                                <li><a href="shop/">Shop</a></li>
+                                <li><a href="cart/">Cart</a></li>
+                                <li><a href="my-account/">My Orders</a></li>
+                                <li><a href="contacts/">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Finish Bottom -->
+    <a href="javascript:void(0)" id="slide_top" class="cmsmasters_theme_icon_slide_top"><span></span></a>
+</div>
+<!-- Finish Main -->
 <!-- Start Footer -->
 		<footer id="footer">
 		    <div class="footer cmsmasters_color_scheme_footer cmsmasters_footer_small">
@@ -119,7 +180,7 @@
 		                    <div itemscope="" itemtype="http://schema.org/Product" id="product-1631" class="product post-1631 type-product status-publish has-post-thumbnail product_cat-cell-phones product_cat-xiaomi first instock shipping-taxable purchasable product-type-simple">
 
 		                        <div class="images cmsmasters_product_images">
-		                            <div data-thumb="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-100x100.jpg" class="woocommerce-product-gallery__image"><a href="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6.jpg" class="cmsmasters_product_image" rel="ilightbox[cmsmasters_product_gallery]"><img width="600" height="600" src="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-600x600.jpg" class="wp-post-image" alt="" title="6" data-caption="" data-src="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6.jpg" data-large_image="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6.jpg" data-large_image_width="600" data-large_image_height="600" srcset="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6.jpg 600w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-150x150.jpg 150w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-300x300.jpg 300w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-75x75.jpg 75w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-580x580.jpg 580w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-540x540.jpg 540w, https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-100x100.jpg 100w" sizes="(max-width: 600px) 100vw, 600px"></a></div>
+		                            <div data-thumb="wp-content/uploads/2015/05/6-100x100.jpg" class="woocommerce-product-gallery__image"><a href="wp-content/uploads/2015/05/6.jpg" class="cmsmasters_product_image" rel="ilightbox[cmsmasters_product_gallery]"><img width="600" height="600" src="wp-content/uploads/2015/05/6-600x600.jpg" class="wp-post-image" alt="" title="6" data-caption="" data-src="wp-content/uploads/2015/05/6.jpg" data-large_image="wp-content/uploads/2015/05/6.jpg" data-large_image_width="600" data-large_image_height="600" srcset="wp-content/uploads/2015/05/6.jpg 600w, wp-content/uploads/2015/05/6-150x150.jpg 150w, wp-content/uploads/2015/05/6-300x300.jpg 300w, wp-content/uploads/2015/05/6-75x75.jpg 75w, wp-content/uploads/2015/05/6-580x580.jpg 580w, wp-content/uploads/2015/05/6-540x540.jpg 540w, wp-content/uploads/2015/05/6-100x100.jpg 100w" sizes="(max-width: 600px) 100vw, 600px"></a></div>
 		                        </div>
 		                        <div class="summary entry-summary">
 		                            <div class="summary-content">
@@ -174,7 +235,7 @@
 
 
 
-		                                    <span class="posted_in"><span class="product_meta_title">Categories: </span><a href="https://devicer.cmsmasters.net/product-category/cell-phones/" class="cmsmasters_cat_color cmsmasters_cat_27" rel="category tag">Cell Phones</a>, <a href="https://devicer.cmsmasters.net/product-category/cell-phones/xiaomi/" class="cmsmasters_cat_color cmsmasters_cat_51" rel="category tag">Xiaomi</a></span>
+		                                    <span class="posted_in"><span class="product_meta_title">Categories: </span><a href="product-category/cell-phones/" class="cmsmasters_cat_color cmsmasters_cat_27" rel="category tag">Cell Phones</a>, <a href="product-category/cell-phones/xiaomi/" class="cmsmasters_cat_color cmsmasters_cat_51" rel="category tag">Xiaomi</a></span>
 
 
 		                                </div>

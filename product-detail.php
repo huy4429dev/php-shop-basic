@@ -141,15 +141,16 @@ include('./layouts/page/header.php');
 
 										</span>
 							</div>
-							<form class="cart" action="https://devicer.cmsmasters.net/product/apple-9-7-ipad/" method="post" enctype='multipart/form-data'>
+							<form class="cart" action="<?= url('add-cart.php') ?>" method="get">
 
 								<div class="quantity">
 									<label class="screen-reader-text" for="quantity_5ee8610905008">Apple
 										9.7&quot; iPad quantity</label>
-									<input type="number" id="quantity_5ee8610905008" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" placeholder="" inputmode="numeric" />
+									<input type="number" id="quantity_5ee8610905008" class="input-text qty text" step="1" min="1" max="" name="so_luong" value="1" title="Qty" size="4" placeholder="" inputmode="numeric" />
+									<input type="hidden" name="id" value="<?= $id ?>">
 								</div>
 
-								<a href="add-cart.php?id=<?= $product->id ?>" class="single_add_to_cart_button button alt">Add to cart</a>
+								<button class="single_add_to_cart_button button alt" type="submit">Thêm vào giỏ</button>
 
 							</form>
 
@@ -377,63 +378,7 @@ include('./layouts/page/header.php');
 	</div>
 </div>
 <!-- Finish Middle -->
-<!-- Start Bottom -->
-<div id="bottom" class="cmsmasters_color_scheme_footer">
-	<div class="bottom_bg">
-		<div class="bottom_outer">
-			<div class="bottom_inner sidebar_layout_14141414">
-				<aside id="text-2" class="widget widget_text">
-					<h3 class="widgettitle">Products</h3>
-					<div class="textwidget">
-						<ul>
-							<li><a href="../apple-watch-series/index.html">Apple Watch Series</a></li>
-							<li><a href="../refurbished-ipad-4th/index.html">Refurbished iPad 4th</a></li>
-							<li><a href="index.html">Apple 9.7&#8243; iPad</a></li>
-							<li><a href="../apple-iphone-6s-16gb/index.html">Apple iPhone 6s 16GB</a></li>
-							<li><a href="../apple-magic-mouse/index.html">Apple Magic Mouse</a></li>
-						</ul>
-					</div>
-				</aside>
-				<aside id="text-4" class="widget widget_text">
-					<h3 class="widgettitle">Customer Service</h3>
-					<div class="textwidget">
-						<ul>
-							<li><a href="../../news/index.html">News</a></li>
-							<li><a href="../../faq/index.html">FAQ</a></li>
-							<li><a href="../../shop/index.html">Shop</a></li>
-							<li><a href="../../about-us/index.html">About us</a></li>
-							<li><a href="../../contacts/index.html">Contacts</a></li>
-						</ul>
-					</div>
-				</aside>
-				<aside id="text-3" class="widget widget_text">
-					<h3 class="widgettitle">Socials</h3>
-					<div class="textwidget">
-						<ul>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">YouTube</a></li>
-							<li><a href="#">Instagram</a></li>
-							<li><a href="#">Snapchat</a></li>
-							<li><a href="#">Facebook</a></li>
-						</ul>
-					</div>
-				</aside>
-				<aside id="text-5" class="widget widget_text">
-					<h3 class="widgettitle">Customer Care</h3>
-					<div class="textwidget">
-						<ul>
-							<li><a href="../../sale/index.html">Sale</a></li>
-							<li><a href="../../shop/index.html">Shop</a></li>
-							<li><a href="../../cart/index.html">Cart</a></li>
-							<li><a href="../../my-account/index.html">My Orders</a></li>
-							<li><a href="../../contacts/index.html">Contacts</a></li>
-						</ul>
-					</div>
-				</aside>
-			</div>
-		</div>
-	</div>
-</div>
+
 <!-- Finish Bottom -->
 <a href="javascript:void(0)" id="slide_top" class="cmsmasters_theme_icon_slide_top"><span></span></a>
 </div>

@@ -1228,64 +1228,6 @@ include('./layouts/page/header.php');
 </div>
 <!-- Finish Middle -->
 <!-- Start Bottom -->
-<div id="bottom" class="cmsmasters_color_scheme_footer">
-    <div class="bottom_bg">
-        <div class="bottom_outer">
-            <div class="bottom_inner sidebar_layout_14141414">
-                <aside id="text-2" class="widget widget_text">
-                    <h3 class="widgettitle">Products</h3>
-                    <div class="textwidget">
-                        <ul>
-                            <li><a href="product/apple-watch-series/index.html">Apple Watch Series</a></li>
-                            <li><a href="product/refurbished-ipad-4th/index.html">Refurbished iPad 4th</a>
-                            </li>
-                            <li><a href="product/apple-9-7-ipad/index.html">Apple 9.7&#8243; iPad</a></li>
-                            <li><a href="product/apple-iphone-6s-16gb/index.html">Apple iPhone 6s 16GB</a>
-                            </li>
-                            <li><a href="product/apple-magic-mouse/index.html">Apple Magic Mouse</a></li>
-                        </ul>
-                    </div>
-                </aside>
-                <aside id="text-4" class="widget widget_text">
-                    <h3 class="widgettitle">Customer Service</h3>
-                    <div class="textwidget">
-                        <ul>
-                            <li><a href="news/index.html">News</a></li>
-                            <li><a href="faq/index.html">FAQ</a></li>
-                            <li><a href="shop/index.html">Shop</a></li>
-                            <li><a href="about-us/index.html">About us</a></li>
-                            <li><a href="contacts/index.html">Contacts</a></li>
-                        </ul>
-                    </div>
-                </aside>
-                <aside id="text-3" class="widget widget_text">
-                    <h3 class="widgettitle">Socials</h3>
-                    <div class="textwidget">
-                        <ul>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">YouTube</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Snapchat</a></li>
-                            <li><a href="#">Facebook</a></li>
-                        </ul>
-                    </div>
-                </aside>
-                <aside id="text-5" class="widget widget_text">
-                    <h3 class="widgettitle">Customer Care</h3>
-                    <div class="textwidget">
-                        <ul>
-                            <li><a href="sale/index.html">Sale</a></li>
-                            <li><a href="shop/index.html">Shop</a></li>
-                            <li><a href="cart/index.html">Cart</a></li>
-                            <li><a href="my-account/index.html">My Orders</a></li>
-                            <li><a href="contacts/index.html">Contacts</a></li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Finish Bottom -->
 <a href="javascript:void(0)" id="slide_top" class="cmsmasters_theme_icon_slide_top"><span></span></a>
 </div>

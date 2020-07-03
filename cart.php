@@ -23,7 +23,7 @@ include('./layouts/page/header.php');
                     <div class="woocommerce">
                         <div class="woocommerce-notices-wrapper"></div>
                         <?php if (is_array($cart)) : ?>
-                            <form class="woocommerce-cart-form" action="https://devicer.cmsmasters.net/cart/" method="post">
+                            <form class="woocommerce-cart-form" action="<?= url('update-cart.php') ?>" method="post">
 
                                 <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
                                     <thead>
@@ -56,7 +56,7 @@ include('./layouts/page/header.php');
                                                 <td class="product-quantity" data-title="Quantity">
                                                     <div class="quantity">
                                                         <label class="screen-reader-text" for="quantity_5ef2ea9d0f8dd"><?= $item->tensanpham ?></label>
-                                                        <input type="number" id="quantity_5ef2ea9d0f8dd" class="input-text qty text" step="1" min="0" max="" name="cart[6ba3af5d7b2790e73f0de32e5c8c1798][qty]" value="<?= $item->so_luong_mua ?>" title="Qty" size="4" placeholder="" inputmode="numeric" />
+                                                        <input type="number" id="quantity_5ef2ea9d0f8dd" class="input-text qty text" step="1" min="0" max="" name="<?= $item->id ?>" value="<?= $item->so_luong_mua ?>" title="Qty" size="4" placeholder="" inputmode="numeric" />
                                                     </div>
                                                 </td>
 
@@ -72,7 +72,7 @@ include('./layouts/page/header.php');
                                                     <label for="coupon_code">Coupon:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" /> <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
                                                 </div> -->
 
-                                                <button type="submit" class="button" name="update_cart" value="Update cart">Cập nhật giỏ hàng</button>
+                                                <button type="submit" class="button" name="update-cart" value="Update cart">Cập nhật giỏ hàng</button>
 
 
                                                 <input type="hidden" id="woocommerce-cart-nonce" name="woocommerce-cart-nonce" value="64dec288a9" /><input type="hidden" name="_wp_http_referer" value="/cart/" />
@@ -135,65 +135,7 @@ include('./layouts/page/header.php');
             </div>
         </div>
     </div>
-    <!-- Finish Middle -->
-    <!-- Start Bottom -->
-    <div id="bottom" class="cmsmasters_color_scheme_footer">
-        <div class="bottom_bg">
-            <div class="bottom_outer">
-                <div class="bottom_inner sidebar_layout_14141414">
-                    <aside id="text-2" class="widget widget_text">
-                        <h3 class="widgettitle">Products</h3>
-                        <div class="textwidget">
-                            <ul>
-                                <li><a href="https://devicer.cmsmasters.net/product/apple-watch-series/">Apple Watch Series</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/product/refurbished-ipad-4th/">Refurbished iPad 4th</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/product/apple-9-7-ipad/">Apple 9.7&#8243; iPad</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/product/apple-iphone-6s-16gb/">Apple iPhone 6s 16GB</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/product/apple-magic-mouse/">Apple Magic Mouse</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <aside id="text-4" class="widget widget_text">
-                        <h3 class="widgettitle">Customer Service</h3>
-                        <div class="textwidget">
-                            <ul>
-                                <li><a href="https://devicer.cmsmasters.net/news/">News</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/faq/">FAQ</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/shop/">Shop</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/about-us/">About us</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/contacts/">Contacts</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <aside id="text-3" class="widget widget_text">
-                        <h3 class="widgettitle">Socials</h3>
-                        <div class="textwidget">
-                            <ul>
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">YouTube</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Snapchat</a></li>
-                                <li><a href="#">Facebook</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <aside id="text-5" class="widget widget_text">
-                        <h3 class="widgettitle">Customer Care</h3>
-                        <div class="textwidget">
-                            <ul>
-                                <li><a href="https://devicer.cmsmasters.net/sale/">Sale</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/shop/">Shop</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/cart/">Cart</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/my-account/">My Orders</a></li>
-                                <li><a href="https://devicer.cmsmasters.net/contacts/">Contacts</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Finish Bottom -->
+
     <a href="javascript:void(0)" id="slide_top" class="cmsmasters_theme_icon_slide_top"><span></span></a>
 </div>
 <!-- Finish Main -->
