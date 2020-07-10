@@ -38,14 +38,25 @@ include('./layouts/page/header.php');
                 <div class="blog opened-article">
                     <!-- Start Post Single Article -->
                     <article id="post-2938" class="cmsmasters_open_post post-2938 post type-post status-publish format-image has-post-thumbnail hentry category-hi-tech post_format-post-format-image">
-                        <span class="cmsmasters_post_category"><?= $new->tendanhmuc ?></span><span class="cmsmasters_post_author"><span><?= $new->name ?></span></span>
-                        <div class="cmsmasters_post_cont_info entry-meta"><span class="cmsmasters_post_date"><?= formatDate($new->created_at) ?></span></div>
+                        <div style="display:flex; justify-content:space-between">
+                            <div>
+                                <span class="cmsmasters_post_category"><?= $new->tendanhmuc ?></span><span class="cmsmasters_post_author"><span><?= $new->name ?></span></span>
+                                <div class="cmsmasters_post_cont_info entry-meta"><span class="cmsmasters_post_date"><?= formatDate($new->created_at) ?></span></div>
+                            </div>
+                            <div>
+                                <div class="fb-like" data-href="http://jvbvietnam.com/blog-detail.php?id=8" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                            </div>
+                        </div>
                         <figure class="cmsmasters_img_wrap"><a href="#" title="Dairy: A free Sketch UI kit for minimal apps" rel="ilightbox[img_2938_5ef2b6e86144c]" class="cmsmasters_img_link"><img width="1160" height="685" src="<?= BASE_URL . '/' . $new->hinhanh ?>" sizes="(max-width: 1160px) 100vw, 1160px" /></a></figure>
                         <div class="cmsmasters_post_content entry-content">
                             <p>
                                 <?= $new->noidung ?>
                             </p>
                         </div>
+                        <div style="margin: 30px 0">
+                            <div class="fb-comments" data-href="http://jvbvietnam.com/blog-detail.php?id=<?= $id ?>" data-numposts="5" data-width="100%"></div>
+                        </div>
+
                     </article>
                     <aside class="cmsmasters_single_slider">
                         <h3 class="cmsmasters_single_slider_title">Bài viết khác</h3>
@@ -71,7 +82,6 @@ include('./layouts/page/header.php');
             <!-- Finish Content -->
 
 
-
         </div>
     </div>
 </div>
@@ -79,6 +89,6 @@ include('./layouts/page/header.php');
 <a href="javascript:void(0)" id="slide_top" class="cmsmasters_theme_icon_slide_top"><span></span></a>
 </div>
 <!-- Finish Main -->
-
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=543121906576699&autoLogAppEvents=1" nonce="UU6IAsrA"></script>
 <?php include('./layouts/page/footer.php') ?>

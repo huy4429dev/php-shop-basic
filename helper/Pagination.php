@@ -1,144 +1,62 @@
 <?php
-/**
- * Create pagination markup
- *
- * @param $baseUrl string
- * @param $totalResults int
- * @param $resultsPerPage int
- * @param $currentPage int
- * @param $queryStringArray array
- */
-function pagination($baseUrl, $totalResults, $resultsPerPage, $currentPage, $queryStringArray=[]) {
-    //total pages to show
-    $totalPages = ceil($totalResults/$resultsPerPage);
-    
-    //if only one page then no point in showing a single paginated link
-    if($totalPages <=1 )
-    return '';
- 
-    //build the query string if provided
-    $queryString = '';
-    if($queryStringArray)
-    $queryString = '&'.http_build_query($queryStringArray);
-    
-    //show not more than 3 paginated links on right and left side
-    $rightLinks = $currentPage+3;
-    $previousLinks = $currentPage-3;
-    ob_start();
-    
-    ?>
-    <nav aria-label="Page navigation" class="text-center">
-    <ul class="pagination">
-        <?php
-        //if page number 1 is not shown then show the "First page" link
-        if($previousLinks>1) {
-            ?>
-            <li>
-                <a href="<?php echo $baseUrl.'?page=1'.$queryString; ?>" aria-label="First">
-                    <span aria-hidden="true">&laquo;&laquo;</span>
-                </a>
-            </li>
-            <?php
+
+function pagination($tong_so_ban_ghi, $so_ban_ghi_mot_trang, $trang_hien_tai, $baseUrl)
+{
+
+
+    $html = '<ul class="page-numbers">';
+
+    $so_trang = ceil($tong_so_ban_ghi / $so_ban_ghi_mot_trang);
+
+
+    if (strpos($baseUrl, "?")) {
+        if ($trang_hien_tai > 1) {
+            $trangtruoc = $trang_hien_tai - 1;
+            $html = "<ul class='page-numbers'> <li><a class='page-numbers' href='&page=$trangtruoc' class='pagination-prev'><i class='icon-left-4'></i> <span> << </span></a></li>";
         }
-    
-        //disable previous button when first page
-        if($currentPage == 1) {
-            ?>
-            <li class="disabled">
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <?php 
+    } else {
+        if ($trang_hien_tai > 1) {
+            $trangtruoc = $trang_hien_tai - 1;
+            $html = "<ul class='page-numbers'> <li><a class='page-numbers' href='?page=$trangtruoc' class='pagination-prev'><i class='icon-left-4'></i> <span> << </span></a></li>";
         }
-        
-        //if current page > 1 only then show previous page
-        if($currentPage > 1) {
-            ?>
-            <li>
-                <a href="<?php echo $baseUrl.'?page='.($currentPage-1).$queryString; ?>" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <?php 
-        }
-        
-        //Create left-hand side links
-        for($i = $previousLinks; $i <= $currentPage; $i++){
-            if($i>0) {
-                if($i==$currentPage) { ?>
-                    <li class="active"><a href="#"><?php echo $i; ?></a></li>
-                <?php }
-                else { ?>
-                    <li>
-                        <a href="<?php echo $baseUrl.'?page='.$i.$queryString; ?>"><?php echo $i; ?></a>
-                    </li>
-                <?php }    
-            }            
-        }
-        
-        //middle pages
-        if(false)
-        for($i=1; $i<=$totalPages; $i++) {
-            if($i==$currentPage) { ?>
-                <li class="active"><a href="#"><?php echo $i; ?></a></li>
-            <?php }
-            else { ?>
-                <li>
-                    <a href="<?php echo $baseUrl.'?page='.$i.$queryString; ?>"><?php echo $i; ?></a>
-                </li>
-        <?php }
-        }
-        
-        //right side links
-        for($i = $currentPage+1; $i < $rightLinks ; $i++){
-            if($i<=$totalPages){
-                if($i==$currentPage) { ?>
-                    <li class="active"><a href="#"><?php echo $i; ?></a></li>
-                <?php }
-                else { ?>
-                    <li>
-                        <a href="<?php echo $baseUrl.'?page='.$i.$queryString; ?>"><?php echo $i; ?></a>
-                    </li>
-                    <?php
-                }
+    }
+    for ($i = 1; $i <= $so_trang; $i++) {
+
+        if (strpos($baseUrl, "?")) {
+            if ($trang_hien_tai == $i) {
+                $html .= "<li class='active'> <a class='page-numbers' href='$baseUrl&page=$i'> $i </a></li> ";
+                continue;
             }
+            $html .= "<li> <a class='page-numbers' href='$baseUrl&page=$i'> $i </a></li> ";
+        } else {
+
+            if ($trang_hien_tai == $i) {
+                $html .= "<li class='active'> <a class='page-numbers' href='$baseUrl?page=$i'> $i </a></li> ";
+                continue;
+            }
+            $html .= "<li> <a class='page-numbers' href='$baseUrl?page=$i'> $i </a></li> ";
         }
-        
-        //if current page is not last page then only show next page link
-        if($currentPage != $totalPages) { ?>
-             <li>
-                <a href="<?php echo $baseUrl.'?page='.($currentPage+1).$queryString; ?>" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        <?php 
+    }
+
+    if (strpos($baseUrl, "?")) {
+
+        if ($trang_hien_tai < $so_trang) {
+            $trangsau = $trang_hien_tai + 1;
+            $html .= "<li><a class='page-numbers' href='$baseUrl&page=$trangsau' class='pagination-next'><span> >> </span> <i class='icon-right-4'></i></a></li>";
+        } else {
+            $html .= '</ul>';
         }
-        
-        //if current page is last page then show next page link disabled
-        if($currentPage == $totalPages) { ?>
-              <li class="disabled">
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        <?php 
+        $i = $so_trang;
+    } else {
+
+        if ($trang_hien_tai < $so_trang) {
+            $trangsau = $trang_hien_tai + 1;
+            $html .= "<li><a class='page-numbers' href='$baseUrl?page=$trangsau' class='pagination-next'><span> >> </span> <i class='icon-right-4'></i></a></li>";
+        } else {
+            $html .= '</ul>';
         }
-        
-        if($rightLinks<$totalPages) {
-            ?>
-            <li>
-                <a href="<?php echo $baseUrl.'?page='.$totalPages.$queryString; ?>" aria-label="First">
-                    <span aria-hidden="true">&raquo;&raquo;</span>
-                </a>
-            </li>
-            <?php
-        }
-    ?>
-    </ul>
-    </nav>
-    <?php
-    $output = ob_get_contents();
-    ob_end_clean();
-    return $output;
+        $i = $so_trang;
+    }
+
+    return $html;
 }

@@ -34,10 +34,12 @@ include('./layouts/page/header.php');
                                                         <?php foreach ($posts as $post) : ?>
                                                             <article id="post-85" class="cmsmasters_post_default post-85 post type-post status-publish format-image has-post-thumbnail hentry category-hi-tech post_format-post-format-image">
                                                                 <div class="cmsmasters_post_cont_wrap">
-                                                                    <img width="860" height="508" src="./wp-content/uploads/2017/06/blog5-2-860x508.jpg" class="" alt="Best care and support at Our Stores" title="blog5" srcset=" <?= BASE_URL .'/' . $post->hinhanh ?> " sizes="(max-width: 860px) 100vw, 860px" />
+                                                                    <img width="860" height="508" src="./wp-content/uploads/2017/06/blog5-2-860x508.jpg" class="" alt="Best care and support at Our Stores" title="blog5" srcset=" <?= BASE_URL . '/' . $post->hinhanh ?> " sizes="(max-width: 860px) 100vw, 860px" />
                                                                     <div class="cmsmasters_post_cont enable_image">
-                                                                        <footer class="cmsmasters_post_footer entry-meta"><span class="cmsmasters_post_category"><a href="./category/hi-tech/index.html" class="cmsmasters_cat_color cmsmasters_cat_17" rel="category tag">Hi-Tech</a></span><span class="cmsmasters_post_author"><a href="./author/cmsmasters/index.html" title="Posts by cmsmasters" class="vcard author" rel="author"><span class="fn">cmsmasters</span></a></span>
-                                                                            <div class="cmsmasters_post_meta_info"><span class="cmsmasters_likes cmsmasters_post_likes"><a href="#" onclick="cmsmastersLike(85, false); return false;" id="cmsmastersLike-85" class="cmsmastersLike cmsmasters_theme_icon_like"><span>20 </span></a></span><span class="cmsmasters_comments cmsmasters_post_comments"><a class="cmsmasters_theme_icon_comment" href="./2017/01/10/best-care-and-support-at-our-stores/index.html#respond" title="Comment on Best care and support at Our Stores"><span>0 </span></a></span></div>
+                                                                        <footer class="cmsmasters_post_footer entry-meta"><span class="cmsmasters_post_category"><a href="./category/hi-tech/index.html" class="cmsmasters_cat_color cmsmasters_cat_17" rel="category tag">Hi-Tech</a></span><span class="cmsmasters_post_author"><a href="#" title="Posts by cmsmasters" class="vcard author" rel="author"><span class="fn">cmsmasters</span></a></span>
+                                                                            <div>
+                                                                                <div class="fb-like" data-href="http://jvbvietnam.com/blog-detail.php?id=<?= $post->id ?>" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                                                                            </div>
                                                                         </footer>
                                                                         <header class="cmsmasters_post_header entry-header">
                                                                             <h3 class="cmsmasters_post_title entry-title"><a href="blog-detail.php?id=<?= $post->id ?>"><?= $post->tieude ?></a></h3>
@@ -244,5 +246,6 @@ include('./layouts/page/header.php');
     </div>
 </div>
 <!-- Finish Middle -->
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=543121906576699&autoLogAppEvents=1" nonce="UU6IAsrA"></script>
 <?php include('./layouts/page/footer.php') ?>

@@ -42,7 +42,7 @@ include('./layouts/page/header.php');
                                             <tr class="woocommerce-cart-form__cart-item cart_item">
 
                                                 <td class="product-remove">
-                                                    <a href="https://devicer.cmsmasters.net/cart/?remove_item=6ba3af5d7b2790e73f0de32e5c8c1798&#038;_wpnonce=64dec288a9" class="remove" aria-label="Remove this item" data-product_id="1631" data-product_sku="">&times;</a> </td>
+                                                    <a href="remove-product.php?id=<?= $item->id ?>" class="remove" aria-label="Remove this item" data-product_id="1631" data-product_sku="">&times;</a> </td>
 
                                                 <td class="product-thumbnail">
                                                     <a href="<?= url('product-detail.php?id='. $item->id) ?>"><img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset=""<?= BASE_URL . '/' . $item->hinhanh ?> sizes="(max-width: 540px) 100vw, 540px" /></a> </td>

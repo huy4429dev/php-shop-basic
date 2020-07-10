@@ -46,14 +46,7 @@
         </form>
         <ul class="nav ml-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="notificationDropdown" data-toggle="dropdown" aria-expanded="false">
-              <i class="mdi mdi-bell-outline mdi-1x"></i>
-            </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="notificationDropdown">
-              <div class="dropdown-header">
-                <h6 class="dropdown-title">Notifications</h6>
-                <p class="dropdown-title-text">You have 4 unread notification</p>
-              </div>
               <div class="dropdown-body">
                 <div class="dropdown-list">
                   <div class="icon-wrapper rounded-circle bg-inverse-primary text-primary">
@@ -89,10 +82,6 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="messageDropdown" data-toggle="dropdown" aria-expanded="false">
-              <i class="mdi mdi-message-outline mdi-1x"></i>
-              <span class="notification-indicator notification-indicator-primary notification-indicator-ripple"></span>
-            </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="messageDropdown">
               <div class="dropdown-header">
                 <h6 class="dropdown-title">Messages</h6>
@@ -140,18 +129,11 @@
               <i class="mdi mdi-apps mdi-1x"></i>
             </a>
             <div class="dropdown-menu navbar-dropdown dropdown-menu-right" aria-labelledby="appsDropdown">
-              <div class="dropdown-header">
-                <h6 class="dropdown-title">Apps</h6>
-                <p class="dropdown-title-text mt-2">Authentication required for 3 apps</p>
-              </div>
               <div class="dropdown-body border-top pt-0">
                 <a class="dropdown-grid">
                   <i class="grid-icon mdi mdi-jira mdi-2x"></i>
                   <a href="<?= url('admin/account/logout.php') ?>">Đăng xuất</a>
                 </a>
-              </div>
-              <div class="dropdown-footer">
-                <a href="#">View All</a>
               </div>
             </div>
           </li>
@@ -169,7 +151,6 @@
         </div>
         <div class="info-wrapper">
           <p class="user-name"><?= Auth::user()->name ?></p>
-          <h6 class="display-income">$3,400,00</h6>
         </div>
       </div>
       <ul class="navigation-menu">
