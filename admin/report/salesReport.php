@@ -8,8 +8,30 @@ if (!Auth::user()) {
     Redirect::url('admin/account/login.php');
 }
 
-$sql = "SELECT donhang.*, khachhang.hoten, khachhang.phone FROM donhang  join  khachhang on donhang.khachhang_id = khachhang.id";
+$sql = " SELECT count(id) as data , sum(tongtien) as tongtien , CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear 
+FROM donhang
+WHERE YEAR(created_at) = 2020 
+GROUP BY monthyear
+ORDER BY monthyear ASC ";
+
 $data = $DB->query($sql);
+
+
+$data_thu = [];
+$i = 1;
+while ($i <= 12) {
+    $data_thu[] = 0;
+    $i++;
+}
+
+foreach ($data_thu as $key => $value) {
+    foreach ($data as $item) {
+        if ($key == substr($item->monthyear, 0, strpos($item->monthyear, '-'))) {
+            $data_thu[$key - 1] =  $item->tongtien;
+        }
+    }
+}
+
 
 $title = "Báo cáo tồn kho";
 include('../../layouts/admin/header.php');
@@ -20,11 +42,12 @@ include('../../layouts/admin/header.php');
 </div>
 <div class="col-md-6">
     <div class="col-md-12 showcase_content_area px-0">
-        <select class="custom-select">
+        <select class="custom-select" id="order-group">
             <option selected="">Chọn thời gian</option>
-            <option value="1">5/2020</option>
-            <option value="2">4/2020</option>
-            <option value="3">3/2020</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
         </select>
     </div>
     <div class="grid">
@@ -49,12 +72,68 @@ include('../../layouts/admin/footer.php');
 ?>
 
 <script>
-    $(document).ready(function() {
-        $('#dtBasicExample').DataTable({
-            "order": [
-                [0, "desc"]
-            ]
-        }, );
-        $('.dataTables_length').addClass('bs-select');
-    });
+    if ($("#chartjs-bar-chart").length) {
+        var BarData = {
+            labels: ["tháng 1", "tháng 2", "tháng 3", "tháng 4", "tháng 5", "tháng 6", "tháng 7", "tháng 8", "tháng 10", "tháng 11", "tháng 12"],
+            datasets: [{
+                label: '# of Votes',
+                data: <?= json_encode($data_thu) ?>,
+                backgroundColor: chartColors,
+                borderColor: chartColors,
+                borderWidth: 0
+            }]
+        };
+        var barChartCanvas = $("#chartjs-bar-chart").get(0).getContext("2d");
+        var barChart = new Chart(barChartCanvas, {
+            type: 'bar',
+            data: BarData,
+            options: {
+                legend: false
+            }
+        });
+
+        var url = "ajax-getsales.php";
+        var orderGroup = document.querySelector('#order-group');
+        orderGroup.addEventListener('change', function() {
+
+            fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        groupYear: orderGroup.value
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    var BarData = {
+                        labels: ["tháng 1", "tháng 2", "tháng 3", "tháng 4", "tháng 5", "tháng 6", "tháng 7", "tháng 8", "tháng 10", "tháng 11", "tháng 12"],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: data,
+                            backgroundColor: chartColors,
+                            borderColor: chartColors,
+                            borderWidth: 0
+                        }]
+                    };
+                    var barChartCanvas = $("#chartjs-bar-chart").get(0).getContext("2d");
+                    var barChart = new Chart(barChartCanvas, {
+                        type: 'bar',
+                        data: BarData,
+                        options: {
+                            legend: false
+                        }
+                    });
+
+
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+
+        })
+
+    }
 </script>

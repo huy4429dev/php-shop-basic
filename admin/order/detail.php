@@ -38,7 +38,6 @@ include('../../layouts/admin/header.php');
                     <th>Tên sản phẩm</th>
                     <th class="text-center">Số lượng</th>
                     <th>Đơn giá (vnđ)</th>
-                    <th>Sale</th>
                     <th>Thành tiền (vnđ)</th>
                     <th></th>
                 </tr>
@@ -49,8 +48,7 @@ include('../../layouts/admin/header.php');
                         <td><?= $item->tensanpham ?></td>
                         <td class="text-center"><?= $item->soluongmua ?></td>
                         <td  style="width:100px"><?= number_format($item->giaban) ?></td>
-                        <td style="width:100px"><?= $item->sale ?>%</td>
-                        <td style="width:100px"><?= number_format($item->giaban * $item->soluongmua * (100 - $item->sale )/100) ?></td>
+                        <td style="width:100px"><?= number_format($item->giaban * $item->soluongmua) ?></td>
                         <td class="actions">
                             <i class="mdi mdi-dots-vertical"></i>
                         </td>
@@ -70,7 +68,7 @@ include('../../layouts/admin/header.php');
     <li class="py-2 px-3"><span class="d-inline-block" style="width: 120px">Thời gian</span><?= formatDate($order->created_at) ?></li>
     <li class="py-2 px-3"><span class="d-inline-block" style="width: 120px">Tổng tiền</span><span><?= number_format($order->tongtien). ' vnđ' ?></span></li>
   </ul>
-  <a href="" class="btn btn-sm btn-success">Xuất hóa đơn</a>
+  <a href="/admin/order/exportexcel.php?id=<?= $id ?>" class="btn btn-sm btn-success">Xuất hóa đơn</a>
 </div>
 
 <?php

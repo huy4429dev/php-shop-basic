@@ -17,6 +17,34 @@ $sql = "SELECT count(id) as khachhangmoi from khachhang where YEAR(created_at) =
 $newCustomer = $DB->query($sql); // lay ra so khach hang moi
 
 
+// tong so don hang trong thang
+
+$sql = "SELECT count(id) as donhangmoi from donhang where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth  ";
+
+$newOrder = $DB->query($sql); 
+
+$sql = "SELECT count(id) as donhangcho from donhang where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth and donhang.trangthai = 0";
+$orderPending = $DB->query($sql);
+
+$sql = "SELECT count(id) as donhangdaxuly from donhang where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth and donhang.trangthai = 1";
+$orderSuccess = $DB->query($sql);
+
+$sql = "SELECT count(id) as sanphammoi from sanpham where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth ";
+$newProduct = $DB->query($sql);
+
+$sql = "SELECT count(id) as baivietmoi from sanpham where YEAR(created_at) = $currentYear and MONTH(created_AT) = $currentMonth ";
+$newPost = $DB->query($sql);
+
+
+
+
+// don hang da xu ly
+
+// san pham moi
+
+// bai viet moi
+
+
 include('../../layouts/admin/header.php');
 
 
@@ -48,10 +76,11 @@ include('../../layouts/admin/header.php');
                 <div class="grid">
                   <div class="grid-body text-gray">
                     <div class="d-flex justify-content-between">
-                      <p>43%</p>
-                      <p>+15.7%</p>
+                      <p><?= $newOrder[0]->donhangmoi ?></p>
+                      <p><?= $orderPending[0]->donhangcho / $newOrder[0]->donhangmoi * 100  ?>% đang chờ</p>
+                      <p> <?= $orderSuccess[0]->donhangdaxuly / $newOrder[0]->donhangmoi * 100  ?>% đã xử lý</p>
                     </div>
-                    <p class="text-black">Conversion</p>
+                    <p class="text-black">Đơn hàng mới</p>
                     <div class="wrapper w-50 mt-4">
                       <canvas height="45" id="stat-line_2"></canvas>
                     </div>
@@ -62,10 +91,9 @@ include('../../layouts/admin/header.php');
                 <div class="grid">
                   <div class="grid-body text-gray">
                     <div class="d-flex justify-content-between">
-                      <p>23%</p>
-                      <p>+02.7%</p>
+                      <p><?= $newProduct[0]->sanphammoi ?></p>
                     </div>
-                    <p class="text-black">Bounce Rate</p>
+                    <p class="text-black">Sản phẩm mới</p>
                     <div class="wrapper w-50 mt-4">
                       <canvas height="45" id="stat-line_3"></canvas>
                     </div>
@@ -76,10 +104,9 @@ include('../../layouts/admin/header.php');
                 <div class="grid">
                   <div class="grid-body text-gray">
                     <div class="d-flex justify-content-between">
-                      <p>75%</p>
-                      <p>- 53.34%</p>
+                      <p><?= $newPost[0]->baivietmoi ?></p>
                     </div>
-                    <p class="text-black">Marketing</p>
+                    <p class="text-black">Bài viết mới</p>
                     <div class="wrapper w-50 mt-4">
                       <canvas height="45" id="stat-line_4"></canvas>
                     </div>
