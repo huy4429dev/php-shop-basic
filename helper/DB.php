@@ -14,11 +14,11 @@ class DB
     {
         // hàm kết nối
         $this->kn = new mysqli(DB['server'], DB['username'], DB['password'], DB['name']);
-        mysqli_set_charset($this->kn, "utf8");
-        if (!$this->kn) {
-            echo ('Lỗi kết nối cơ sở dữ liệu');
-            return;
-        }
+        // mysqli_set_charset($this->kn, "utf8");
+        // if (!$this->kn) {
+        //     echo ('Lỗi kết nối cơ sở dữ liệu');
+        //     return;
+        // }
     }
 
     public function query($sql)
@@ -190,7 +190,7 @@ class DB
         }
         return $data;
     }
-    public function CountRecord($table, $where = [])
+    public function countRecord($table, $where = [])
     {
         if (empty($where)) {
             $sql = "SELECT count(id) as count FROM $table";
@@ -221,7 +221,7 @@ class DB
 
         return $data;
     }
-    public function CountRecordLike($table, $where = [])
+    public function countRecordLike($table, $where = [])
     {
 
         foreach ($where as $key => $value) {

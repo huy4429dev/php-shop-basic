@@ -7,10 +7,10 @@ if (!Auth::user()) {
 
     Redirect::url('admin/account/login.php');
 }
-
+$currentYear = date("Y");
 $sql = " SELECT count(id) as data , sum(tongtien) as tongtien , CONCAT_WS('-',MONTH(created_at),YEAR(created_at)) as monthyear 
 FROM donhang
-WHERE YEAR(created_at) = 2020 
+WHERE YEAR(created_at) = $currentYear 
 GROUP BY monthyear
 ORDER BY monthyear ASC ";
 

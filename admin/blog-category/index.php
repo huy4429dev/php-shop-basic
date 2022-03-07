@@ -8,19 +8,21 @@ if (!Auth::user()) {
   Redirect::url('admin/account/login.php');
 }
 
+$sql = "SELECT * FROM danhmuc_blog";
+$data = $DB->query($sql);
 
-$title = "Danh mục bài viết";
+$title = "Danh mục tin tức";
 include('../../layouts/admin/header.php');
 
 ?>
 <div class="d-flex justify-content-between mb-4">
-  <h4>Danh mục bài viết </h4>
+  <h4>Danh mục tin tức </h4>
   <a href="<?= url('admin/blog-category/create.php') ?>" class="btn btn-primary btn-sm">Thêm mới</a>
 </div>
 <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th class="th-sm">#ID
+      <th class="th-sm">#
       </th>
       <th class="th-sm">Tên loại
       </th>
@@ -33,44 +35,54 @@ include('../../layouts/admin/header.php');
   </thead>
   <tbody>
 
+    <?php if(is_array($data)): ?>
+      <?php $i = 1 ?>
+      <?php foreach($data as $item): ?>
     <tr>
-      <td>@item.Id</td>
-      <td>@item.Name</td>
-      <td data-toggle="modal" data-target="#basicExampleModal-@item.Id" class="d-flex justify-content-between show-Content">
-        Mô tả
-        <i class="fa fa-eye" aria-hidden="true"></i>
+      <td style="width:50px"><?= $i ?></td>
+      <td><?= $item->tendanhmuc ?></td>
+      <td>
+        <?= strlen($item->mota) > 50 ?  substr($item->mota,0,50).' ...' : $item->mota ?>
       </td>
-      <td style="width:120px">05/05/2020</td>
-      <td class="text-center" style="width:50px">
-        <a href="<?= url('admin/category/update.php') ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
+      <td style="width:120px">
+        <?= formatDate($item->created_at)?>
       </td>
       <td class="text-center" style="width:50px">
-        <a href="#"><b class='badge badge-danger status-Content' type="button" data-toggle="modal" data-target="#exampleModal">Xóa</b></a>
+        <a href="<?= url("admin/blog-category/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
+      </td>
+      <td class="text-center" style="width:50px">
+        <a href="#"><b class='badge badge-danger status-Content' type="button" data-toggle="modal" data-target="#exampleModal-<?= $item->id ?>">Xóa</b></a>
       </td>
     </tr>
+      <?php $i++ ?>
+    <?php endforeach ?>
+    <?php endif ?>
   </tbody>
 </table>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xóa danh mục</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Bạn có muốn xóa danh mục không ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Xóa</button>
-      </div>
-    </div>
-  </div>
-</div>
+    <?php if(is_array($data)): ?>
+      <?php foreach($data as $item): ?>
+        <div class="modal fade" id="exampleModal-<?= $item->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa danh mục</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Bạn có muốn xóa danh mục không ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <a href="<?= url("admin/blog-category/delete.php?id=$item->id") ?>" class="btn btn-primary">Xóa</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php endforeach ?>
+    <?php endif ?>
 
 <?php
 include('../../layouts/admin/footer.php');

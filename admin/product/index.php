@@ -36,8 +36,7 @@ include('../../layouts/admin/header.php');
       </th>
       <th class="th-sm text-center">Thời gian
       </th>
-      <th class="th-sm text-center">Hành động</th>
-      <th class="th-sm text-center">Hành động</th>
+      <th colspan="2" class="th-sm text-center">Hành động</th>
     </tr>
   </thead>
   <tbody>
@@ -48,10 +47,10 @@ include('../../layouts/admin/header.php');
     <tr>
       <td ><?= $i ?></td>
       <td ><?= $item->tensanpham ?></td>
-      <td class="text-center"><img style="width:50px" src="<?= url('public/uploads/images/'.$item->hinhanh) ?>"></td>
+      <td class="text-center"><img style="width:50px" src="<?=$item->hinhanh ?>"></td>
       <td class="text-center"><?= $item->luotmua ?></td>
       <td class="text-center"><?= $item->soluong ?></td>
-      <td class="text-center"><?= $item->giaban ?></td>
+      <td class="text-center"><?= number_format($item->giaban) ?></td>
       <td class="text-center"><?= formatDate($item->created_at) ?></td>
       <td class="text-center" style="width:50px">
         <a href="<?= url("admin/product/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>

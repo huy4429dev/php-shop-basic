@@ -1,4 +1,8 @@
 <?php
+
+$search = Input::get('search') ?? '';
+$category = Input::get('category') ?? '';
+
 $cart = Session::get('cart');
 
 $total = 0;
@@ -222,7 +226,7 @@ $currentPage = $_SERVER['REQUEST_URI'];
                     <div class="yith-ajaxsearchform-select">
 
                         <select class="search_categories selectbox" name="product_cat">
-                            <option value="" selected='selected'>Danh mục sản phẩm</option>
+                            <option value="" selected='selected'>Danh mục</option>
                             <?php foreach ($categories as $item) : ?>
                                 <option value="<?= $item->id ?>"><?= $item->tendanhmuc ?></option>
                             <?php endforeach ?>
@@ -232,7 +236,7 @@ $currentPage = $_SERVER['REQUEST_URI'];
                     </div>
                     <div class="search_bar_wrap">
                         <div class="search-navigation search_field">
-                            <input type="search" value="" name="s" class="yith-s" placeholder="Search for products" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
+                            <input type="search" value="<?= $search ?>" name="s" class="yith-s" placeholder="Search for products" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
                         </div>
                         <div class="search_button">
                             <button type="submit" class="cmsmasters-icon-search" value=""></button>
@@ -295,8 +299,13 @@ $currentPage = $_SERVER['REQUEST_URI'];
                                             <?php if (is_array($cart)) : ?>
                                                 <?php foreach ($cart as $item) : ?>
                                                     <li class="woocommerce-mini-cart-item mini_cart_item">
-                                                        <a href="<?= url('product-detail.php?id=' . $item->id) ?>"></a> <a href="<?= url('product-detail.php?id=' . $item->id) ?>">
-                                                            <img width="540" height="540" src="<?= url('product-detail.php?id=' . $item->id) ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?= BASE_URL . '/' . $item->hinhanh ?>" sizes="(max-width: 540px) 100vw, 540px"> <?= $item->tensanpham ?> </a>
+                                                        <a href="<?= url('product-detail.php?id=' . $item->id) ?>"></a>
+                                                        <a href="<?= url('product-detail.php?id=' . $item->id) ?>">
+                                                            <img width="540" height="540" src="<?= 'product-detail.php?id=' . $item->id ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?= BASE_URL . '/' . $item->hinhanh ?>" sizes="(max-width: 540px) 100vw, 540px">
+                                                            <?= $item->tensanpham ?>
+                                                        </a>
+
+
                                                         <span class="quantity"><?= $item->so_luong_mua ?> × <span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol">$</span></span><?= number_format($item->giaban) ?></span></span>
                                                     </li>
                                                 <?php endforeach ?>
@@ -306,7 +315,8 @@ $currentPage = $_SERVER['REQUEST_URI'];
                                         </ul>
 
                                         <p class="woocommerce-mini-cart__total total">
-                                            <strong>Tổng tiền:</strong> <span class="woocommerce-Price-amount amount"><span></span><?= number_format($total) . ' vnđ ' ?></span> </p>
+                                            <strong>Tổng tiền:</strong> <span class="woocommerce-Price-amount amount"><span></span><?= number_format($total) . ' vnđ ' ?></span>
+                                        </p>
 
 
                                         <p class="woocommerce-mini-cart__buttons buttons"><a href="cart.php" class="button wc-forward">Xem giỏ hàng</a><a href="checkout.php" class="button checkout wc-forward">Thanh toán</a></p>
@@ -328,10 +338,10 @@ $currentPage = $_SERVER['REQUEST_URI'];
                                                 <div class="yith-ajaxsearchform-select">
 
                                                     <select class="search_categories selectbox" name="category">
-                                                        <option value="" selected='selected'>Danh mục sản phẩm</option>
+                                                        <option value="" selected='selected'>Danh mục</option>
 
-                                                        <?php foreach($categories as $item): ?>
-                                                            <option value="<?= $item->id ?>"><?= $item->tendanhmuc ?></option>
+                                                        <?php foreach ($categories as $item) : ?>
+                                                            <option <?= $category == $item->id ? 'selected' : ''  ?> value="<?= $item->id ?>"><?= $item->tendanhmuc ?></option>
                                                         <?php endforeach ?>
 
                                                     </select>
@@ -339,7 +349,7 @@ $currentPage = $_SERVER['REQUEST_URI'];
                                                 </div>
                                                 <div class="search_bar_wrap">
                                                     <div class="search-navigation search_field">
-                                                        <input type="search" value="" name="search" class="yith-s" placeholder="Tìm kiếm sản phẩm" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
+                                                        <input type="search" value="<?= $search ?>" name="search" class="yith-s" placeholder="Tìm kiếm sản phẩm" data-append-to=".search-navigation" data-loader-icon="" data-min-chars="3" />
                                                     </div>
                                                     <div class="search_button">
                                                         <button type="submit" class="cmsmasters-icon-search" value=""></button>

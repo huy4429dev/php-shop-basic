@@ -11,8 +11,6 @@ if (is_object($new)) {
 
     $sql = "SELECT * FROM baiviet  ORDER BY id DESC LIMIT 4 ";
     $newRelated = $DB->query($sql);
-
-    
 } else {
     die('không tồn tại bài viết !');
 }
@@ -62,17 +60,21 @@ include('./layouts/page/header.php');
                         <h3 class="cmsmasters_single_slider_title">Bài viết khác</h3>
                         <div class="cmsmasters_single_slider_inner">
                             <div id="cmsmasters_owl_slider_5ef2b6e862e7e" class="cmsmasters_owl_slider" data-single-item="false" data-auto-play="5000">
-                                <?php foreach($newRelated as $item): ?>
-                                <div class="cmsmasters_owl_slider_item cmsmasters_single_slider_item">
-                                    <div class="cmsmasters_single_slider_item_outer">
-                                        <figure class="cmsmasters_img_wrap"><a href="<?= url('blog-detail.php?id='. $item->id) ?>" title="Best care and support at Our Stores" class="cmsmasters_img_link preloader"><img width="580" height="410" src="<?= BASE_URL . '/' . $item->hinhanh ?>" class="full-width wp-post-image" alt="Best care and support at Our Stores" title="blog5" /></a></figure>
-                                        <div class="cmsmasters_single_slider_item_inner">
-                                            <h6 class="cmsmasters_single_slider_item_title">
-                                                <a href="<?= url('blog-detail.php?id='. $item->id) ?>"><?= $item->tieude ?></a>
-                                            </h6>
+                                <?php foreach ($newRelated as $item) : ?>
+                                    <div class="cmsmasters_owl_slider_item cmsmasters_single_slider_item">
+                                        <div class="cmsmasters_single_slider_item_outer">
+                                            <figure class="cmsmasters_img_wrap">
+                                                <a href="<?= url('blog-detail.php?id=' . $item->id) ?>" title="Best care and support at Our Stores" class="cmsmasters_img_link preloader">
+                                                    <img width="580" height="410" src="<?= $item->hinhanh ?>" class="full-width wp-post-image" alt="Best care and support at Our Stores" title="blog5" />
+                                                </a>
+                                            </figure>
+                                            <div class="cmsmasters_single_slider_item_inner">
+                                                <h6 class="cmsmasters_single_slider_item_title">
+                                                    <a href="<?= url('blog-detail.php?id=' . $item->id) ?>"><?= $item->tieude ?></a>
+                                                </h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 <?php endforeach ?>
                             </div>
                         </div>

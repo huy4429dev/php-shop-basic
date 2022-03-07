@@ -36,7 +36,6 @@ if (Input::hasPost('create')) {
         ->categoryRequired($danhmuc_id, "Vui lòng chọn loại sản phẩm")
         ->required($hinhanh, "Vui lòng chọn thumbnail");
 
-
     if (!Validator::anyErrors()) {
         $success = $DB->create('sanpham', [
             'tensanpham' => $tensanpham,
@@ -275,7 +274,7 @@ include('../../layouts/admin/header.php');
                 .then(data => {
 
                     thumbnailUrl.value = data;
-                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    let path = data;
                     thumbnail.setAttribute("src", path);
                 })
                 .catch(err => {
@@ -303,7 +302,7 @@ include('../../layouts/admin/header.php');
                     .then(data => {
 
                         thumbnailUrl.value = data;
-                        let path = "<?= url('public/uploads/images/') ?>" + data;
+                        let path = data;
                         thumbnail.setAttribute("src", path);
                         
                     })

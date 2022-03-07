@@ -15,6 +15,7 @@ if (is_array($cart)) {
     }
 }
 
+
 if (Input::post('checkout')) {
 
     if (Auth::customer()) {
@@ -58,27 +59,34 @@ if (Input::post('checkout')) {
 
 
     $created = $DB->create('donhang', $don_hang);
-
     if ($created) {
 
         $idDonHang = $DB->getInsertID();
-        foreach ($_SESSION['cart'] as $product) {
+
+        foreach ($cart as $product) {
             $chi_tiet = [
                 'sanpham_id' => $product->id,
                 'donhang_id' => $idDonHang,
                 'soluongmua' => $product->so_luong_mua,
-                'dongia'     => $product->gia_ban,
+                'dongia'     => $product->giaban,
                 'sale'       => $product->sale,
             ];
             $created = $DB->create('chitietdonhang', $chi_tiet);
-            if ($created) {
-                $_SESSION['thong_bao'] = true;
-                unset($_SESSION['cart']);
-                header('location: checkout_success.php');
-            } else {
-                $_SESSION['thong_bao'] = false;
-                header('location: checkout_success.php');
+
+            if(Input::post('payment_type') == 'ship') {
+                if ($created) {
+                    $_SESSION['thong_bao'] = true;
+                    unset($_SESSION['cart']);
+                    header('location: checkout_success.php');
+                } else {
+                    $_SESSION['thong_bao'] = false;
+                    header('location: checkout_success.php');
+                }
             }
+            else {
+                header("location: vnpay.php?orderId=$idDonHang&total=$total");
+            }
+       
         }
     }
 }
@@ -205,14 +213,18 @@ include('./layouts/page/header.php');
                                             <th>Tổng tiền</th>
                                             <td><strong><span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol"></span></span><?= number_format($total) . ' vnđ'  ?></span></strong> </td>
                                         </tr>
-
-
                                     </tfoot>
                                 </table>
                                 <div id="payment" class="woocommerce-checkout-payment">
-
+                                    <div class=""> 
+                                        <input id="paynet_ship" type="radio" name="payment_type" value="ship" checked>
+                                        <label for="paynet_ship">Thanh toán sau khi giao hàng</label>
+                                    </div>
+                                    <div style="margin-bottom: 20px"> 
+                                        <input id="paynet_vnpay" type="radio" name="payment_type" value="vnpay">
+                                        <label for="paynet_vnpay">Thanh toán VNPAY</label>
+                                    </div>
                                     <button type="submit" class="button alt" name="checkout" id="place_order" value="Place order" data-value="Place order">Đặt hàng</button>
-
                                 </div>
                             </div>
                         <?php else : ?>

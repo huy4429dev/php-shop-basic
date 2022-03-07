@@ -36,8 +36,7 @@ include('../../layouts/admin/header.php');
             </th>
             <th class="th-sm text-center">Thời gian
             </th>
-            <th class="th-sm text-center">Hành động</th>
-            <th class="th-sm text-center">Hành động</th>
+            <th colspan="2" class="th-sm text-center">Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -48,10 +47,10 @@ include('../../layouts/admin/header.php');
                 <tr>
                     <td><?= $i ?></td>
                     <td><?= $item->hoten ?></td>
-                    <td><img style="width:50px" src="<?= url('public/uploads/images/' . $item->avatar) ?>"></td>
+                    <td><img style="width:50px" src="/public/uploads/images/<?=$item->avatar?>"></td>
                     <td><?= $item->phone ?></td>
                     <td><?= $item->email ?></td>
-                    <td data-toggle="modal" data-target="#basicExampleModal-<?= $item->id ?>" class="d-flex justify-content-between"><?= strlen($item->diachi) > 5 ?  substr($item->diachi, 0, 5) . '...' . '<i style="cursor:pointer" class="mdi mdi-eye"></i>' : $item->diachi.' . <i style="cursor:pointer" class="mdi mdi-eye"></i>'?></td>
+                    <td data-toggle="modal" data-target="#basicExampleModal-<?= $item->id ?>" class="d-flex justify-content-between"><?= strlen($item->diachi) > 20 ?  substr($item->diachi, 0, 20) . '...' . '<i style="cursor:pointer" class="mdi mdi-eye"></i>' : $item->diachi.' . <i style="cursor:pointer" class="mdi mdi-eye"></i>'?></td>
                     <td><?= formatDate($item->created_at) ?></td>
                     <td class="text-center" style="width:50px">
                         <a href="<?= url("admin/customer/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
@@ -111,6 +110,9 @@ include('../../layouts/admin/header.php');
                             </p>
                             <p>
                                 <span style="font-size: 14px"><span style="width:80px; display:inline-block">Địa chỉ: </span><?= $item->diachi ?></span>
+                            </p>
+                            <p>
+                                <span style="font-size: 14px"><span style="width:80px; display:inline-block">Ghi chú: </span><?= $item->note ?></span>
                             </p>
                      
                         </h5>

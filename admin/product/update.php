@@ -198,7 +198,7 @@ include('../../layouts/admin/header.php');
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
-                                    <img id="thumbnail" alt="" class="img-fluid h-100" src="<?= url("public/uploads/images/" . $data->hinhanh) ?>">
+                                    <img id="thumbnail" alt="" class="img-fluid h-100" src="<?= $data->hinhanh ?>?>">
                                     <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUpload">
                                     <input type="hidden" class="form-control upload-thumb-input" id="inputType7" value="<?= $data->hinhanh ?>" name="thumbnailUrl">
                                 </div>
@@ -215,7 +215,7 @@ include('../../layouts/admin/header.php');
                                     if (isset($images[$i]->url)) :
                                     ?>
                                         <div class="upload-thumb-canvas mr-3">
-                                            <img id="images-<?= $i ?>"  class="img-fluid h-100" src="<?= url("public/uploads/images/" . $images[$i]->url) ?>">
+                                            <img id="images-<?= $i ?>"  class="img-fluid h-100" src="<?= $images[$i]->url ?>">
                                             <input type="file" class="form-control upload-thumb-input images"  >
                                             <input type="hidden" name="images[<?= $i ?>]" value="<?= $images[$i]->url ?>">
                                         </div>
@@ -289,7 +289,7 @@ include('../../layouts/admin/header.php');
                 .then(data => {
 
                     thumbnailUrl.value = data;
-                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    let path = data;
                     thumbnail.setAttribute("src", path);
                 })
                 .catch(err => {
@@ -314,7 +314,7 @@ include('../../layouts/admin/header.php');
                     .then(data => {
 
                         thumbnailUrl.value = data;
-                        let path = "<?= url('public/uploads/images/') ?>" + data;
+                        let path = data;
                         thumbnail.setAttribute("src", path);
 
                     })

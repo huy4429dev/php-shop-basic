@@ -26,7 +26,7 @@ if(Input::hasPost('create')) {
         "doantrich" => $doantrich,
         "noidung" => $noidung,
         "danhmuc_id" => $danhmuc,
-        "hinhanh" => "",
+        "hinhanh" => Input::post('thumbnailUrl'),
         "user_id" => Auth::user()->id,
     );
     if(!Validator::anyErrors()){
@@ -111,9 +111,9 @@ include('../../layouts/admin/header.php');
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
-                                    <img alt="">
-                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="hinhanh">
-                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="hinhanh[2]">
+                                    <img id="thumbnail" alt="" class="img-fluid h-100">
+                                    <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUpload">
+                                    <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUrl">
                                 </div>
                             </div>
                         </div>
@@ -147,3 +147,54 @@ include('../../layouts/admin/header.php');
     <?php
     include('../../layouts/admin/footer.php');
     ?>
+      <style>
+        .upload-thumb {
+            position: relative;
+        }
+
+        .upload-thumb-input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-thumb-canvas {
+            position: relative;
+            border: 2px dotted #857bff;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            padding: 2px;
+        }
+    </style>
+
+    <script>
+        let inputThumbnail = document.querySelector('input[name="thumbnailUpload"]');
+        let thumbnailUrl = document.querySelector('input[name="thumbnailUrl"]');
+        inputThumbnail.addEventListener('change', function() {
+            let thumbnail = document.querySelector('#thumbnail');
+
+            let url = "<?= url('admin/upload/index.php') ?>";
+            let formData = new FormData();
+            formData.append("thumbnailUpload", inputThumbnail.files[0]);
+            fetch(url, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    thumbnailUrl.value = data;
+                    let path = data;
+                    thumbnail.setAttribute("src", path);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        })
+    </script>

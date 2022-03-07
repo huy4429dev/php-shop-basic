@@ -7,8 +7,8 @@ if (!Auth::user()) {
 
     Redirect::url('admin/account/login.php');
 }
-
 $sql = "SELECT donhang.*, khachhang.hoten, khachhang.phone FROM donhang  join  khachhang on donhang.khachhang_id = khachhang.id";
+
 $data = $DB->query($sql);
 
 $title = "Báo cáo tồn kho";

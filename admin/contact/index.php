@@ -149,7 +149,7 @@ include('../../layouts/admin/footer.php');
       
       let idContact = this.dataset.target.slice(19);
 
-      let url = "update.php?id= " + idContact;
+      let url = "/admin/contact/update.php?id= " + idContact;
 
       fetch(url)
         .then(response => response.json())

@@ -11,6 +11,7 @@ if (!Auth::user()) {
 $sql = "SELECT * FROM danhmuc";
 $data = $DB->query($sql);
 
+print_r($data);
 
 $title = "Danh mục sản phẩm";
 include('../../layouts/admin/header.php');

@@ -7,10 +7,10 @@ if (isset($_FILES['thumbnailUpload'])) {
     $file_type = $_FILES['thumbnailUpload']['type'];
     $file_erro = $_FILES['thumbnailUpload']['error'];
     if ($file_erro == 0) {
-        $part = $_SERVER['DOCUMENT_ROOT'] . '/PHP_SHOP/public/uploads/images/';
+        $part = $_SERVER['DOCUMENT_ROOT'] . '/public/uploads/images/';
         $data['avatar'] = $file_name;
         move_uploaded_file($file_tmp, $part . $file_name);
-        echo json_encode($file_name);
+        echo json_encode('/public/uploads/images/' . $file_name);
         return;
     }
 }

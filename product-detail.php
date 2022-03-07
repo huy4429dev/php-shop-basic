@@ -237,7 +237,7 @@ include('./layouts/page/header.php');
 																						<?php endfor ?>
 																					</div>
 																				</div>
-																				<span class="rating dn"><strong itemprop="ratingValue"><?= $item->danhgia ?></strong>
+																				<span class="rating dn"><strong itemprop="ratingValue"><?= $review->danhgia ?></strong>
 																					out of 5</span>
 																			</div>
 																		</div>

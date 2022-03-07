@@ -124,7 +124,7 @@ include('../../layouts/admin/header.php');
                         </div>
                         <div class="form-group row showcase_row_area thumb mb-5">
                             <div class="col-md-2 showcase_text_area text-left">
-                                <label for="inputType7">Thumbnail</label>
+                                <label for="inputType7">Avatar</label>
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
@@ -193,7 +193,7 @@ include('../../layouts/admin/header.php');
                 .then(data => {
 
                     thumbnailUrl.value = data;
-                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    let path = data;
                     thumbnail.setAttribute("src", path);
                 })
                 .catch(err => {

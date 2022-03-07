@@ -77,8 +77,8 @@ include('../../layouts/admin/header.php');
                   <div class="grid-body text-gray">
                     <div class="d-flex justify-content-between">
                       <p><?= $newOrder[0]->donhangmoi ?></p>
-                      <p><?= $orderPending[0]->donhangcho / $newOrder[0]->donhangmoi * 100  ?>% đang chờ</p>
-                      <p> <?= $orderSuccess[0]->donhangdaxuly / $newOrder[0]->donhangmoi * 100  ?>% đã xử lý</p>
+                      <p><?= $orderPending[0]->donhangcho / ($newOrder[0]->donhangmoi   ? $newOrder[0]->donhangmoi : 1) * 100  ?>% đang chờ</p>
+                      <p> <?= $orderSuccess[0]->donhangdaxuly / ($newOrder[0]->donhangmoi  ? $newOrder[0]->donhangmoi : 1 ) * 100  ?>% đã xử lý</p>
                     </div>
                     <p class="text-black">Đơn hàng mới</p>
                     <div class="wrapper w-50 mt-4">

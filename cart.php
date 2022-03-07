@@ -45,7 +45,10 @@ include('./layouts/page/header.php');
                                                     <a href="remove-product.php?id=<?= $item->id ?>" class="remove" aria-label="Remove this item" data-product_id="1631" data-product_sku="">&times;</a> </td>
 
                                                 <td class="product-thumbnail">
-                                                    <a href="<?= url('product-detail.php?id='. $item->id) ?>"><img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset=""<?= BASE_URL . '/' . $item->hinhanh ?> sizes="(max-width: 540px) 100vw, 540px" /></a> </td>
+                                                  <a href="<?= url('product-detail.php?id='. $item->id) ?>">
+                                                    <img width="540" height="540" src="<?= $item->hinhanh ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="<?= $item->hinhanh ?>" sizes="(max-width: 540px) 100vw, 540px" />
+                                                  </a> 
+                                                </td>
 
                                                 <td class="product-name" data-title="Product">
                                                     <a href="<?= url('product-detail.php?id='. $item->id) ?>"><?= $item->tensanpham ?></a> </td>
@@ -97,10 +100,6 @@ include('./layouts/page/header.php');
                                         </tr>
 
 
-
-
-
-
                                         <tr class="order-total">
                                             <th>Phí ship</th>
                                             <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol"></span></span>Miễn phí</span></strong> </td>
@@ -109,17 +108,11 @@ include('./layouts/page/header.php');
                                             <th>Thành tiền</th>
                                             <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span><span><?=  number_format($total) . ' vnđ'  ?></span></strong> </td>
                                         </tr>
-
-
                                     </table>
-
                                     <div class="wc-proceed-to-checkout">
-
                                         <a href="<?= url('checkout.php') ?>" class="checkout-button button alt wc-forward">
                                             Thanh toán</a>
                                     </div>
-
-
                                 </div>
                             </div>
                         <?php else : ?>

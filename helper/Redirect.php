@@ -8,4 +8,8 @@
         public static function url($to){
             header('Location: '. BASE_URL . '/' . $to);
         }
+
+        public static function to($to){
+            header("Location: $to");
+        }
     }

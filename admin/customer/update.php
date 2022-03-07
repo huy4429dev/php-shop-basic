@@ -21,6 +21,7 @@ if (Input::hasPost('create')) {
     $phone   = Input::post('phone');
     $diachi  = Input::post('diachi');
     $email   = Input::post('email');
+    $note    = Input::post('note');
     $hinhanh = Input::post('thumbnailUrl');
 
     Validator::required($hoten, "Vui lòng nhập họ tên")
@@ -35,7 +36,8 @@ if (Input::hasPost('create')) {
             'phone'   => $phone,
             'diachi'  => $diachi,
             'email'   => $email,
-            'avatar' => $hinhanh,
+            'avatar'  => $hinhanh,
+            'note'    => $note,
         ], $id);
 
         if ($success === true) {
@@ -130,13 +132,21 @@ include('../../layouts/admin/header.php');
                                 <input type="text" class="form-control" id="inputType4" name="diachi"  value="<?= $data->diachi ?>">
                             </div>
                         </div>
+                        <div class="form-group row showcase_row_area">
+                            <div class="col-md-2 showcase_text_area text-left">
+                                <label for="inputType1">Ghi chú</label>
+                            </div>
+                            <div class="col-md-9 showcase_content_area text-left">
+                                <input type="text" class="form-control" id="inputType4" name="note"  value="<?= $data->note ?>">
+                            </div>
+                        </div>
                         <div class="form-group row showcase_row_area thumb mb-5">
                             <div class="col-md-2 showcase_text_area text-left">
                                 <label for="inputType7">Ảnh đại diện</label>
                             </div>
                             <div class="col-md-9 showcase_content_area text-left upload-thumb">
                                 <div class="upload-thumb-canvas">
-                                    <img id="thumbnail" alt="" class="img-fluid h-100" src="<?= url('public/uploads/images/'.$data->avatar) ?>">
+                                    <img id="thumbnail" alt="" class="img-fluid h-100" src="<?= $data->avatar?>">
                                     <input type="file" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUpload">
                                     <input type="hidden" class="form-control upload-thumb-input" id="inputType7" name="thumbnailUrl" value="<?= $data->avatar ?>">
                                 </div>
@@ -144,7 +154,7 @@ include('../../layouts/admin/header.php');
                         </div>
                         <div class="form-group row showcase_row_area">
                             <div class="col-md-2 showcase_text_area text-left">
-                                <button type="submit" name="create" class="btn btn-sm btn-success">Thêm mới</button>
+                                <button type="submit" name="create" class="btn btn-sm btn-success">Cập nhật</button>
                             </div>
                         </div>
                     </div>
@@ -201,7 +211,7 @@ include('../../layouts/admin/header.php');
                 .then(data => {
 
                     thumbnailUrl.value = data;
-                    let path = "<?= url('public/uploads/images/') ?>" + data;
+                    let path = data;
                     thumbnail.setAttribute("src", path);
                 })
                 .catch(err => {

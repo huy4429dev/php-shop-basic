@@ -2,11 +2,9 @@
 
 include('./autoload/Autoload.php');
 
+
 $search = Input::get('search') ?? '';
 $category = Input::get('category') ?? '';
-
-
-
 
 $page = Input::get('page') ?? 1;
 $pageSize = 9;
@@ -200,54 +198,6 @@ include('./layouts/page/header.php');
 
             <!-- Start Sidebar -->
             <div class="sidebar">
-                <aside id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories">
-                    <h3 class="widgettitle">Danh mục sản phẩm</h3><select name='product_cat' id='product_cat' class='dropdown_product_cat'>
-                        <option value='' selected='selected'>Select a category</option>
-                        <option class="level-0" value="acoustics">Acoustics</option>
-                        <option class="level-0" value="action-camcorders">Action Camcorders</option>
-                        <option class="level-0" value="apple-smart-watches">Apple</option>
-                        <option class="level-0" value="apple-imac">Apple iMac</option>
-                        <option class="level-0" value="apple-ipads">Apple iPads</option>
-                        <option class="level-0" value="apple-ipads-mini">Apple iPads Mini</option>
-                        <option class="level-0" value="apple-led-tcvs">Apple LED TVs</option>
-                        <option class="level-0" value="apple-macbook">Apple Macbook</option>
-                        <option class="level-0" value="asus">Asus</option>
-                        <option class="level-0" value="cameras">Cameras</option>
-                        <option class="level-0" value="cell-phones">Cell Phones</option>
-                        <option class="level-0" value="computer-hardware">Computer Hardware</option>
-                        <option class="level-0" value="daydream-view">Daydream View</option>
-                        <option class="level-0" value="dell-laptop">Dell Laptop</option>
-                        <option class="level-0" value="dell-led-tvs">Dell LED TVs</option>
-                        <option class="level-0" value="digital-camcorders">Digital Camcorders</option>
-                        <option class="level-0" value="over-the-ear-headphones">Ear Headphones</option>
-                        <option class="level-0" value="headphones">Headphones</option>
-                        <option class="level-0" value="htc">HTC</option>
-                        <option class="level-0" value="apple">IPhone</option>
-                        <option class="level-0" value="keyboards">Keyboards</option>
-                        <option class="level-0" value="laptops">Laptops</option>
-                        <option class="level-0" value="led-tvs">LED TVs</option>
-                        <option class="level-0" value="meizu">Meizu</option>
-                        <option class="level-0" value="mice">Mice</option>
-                        <option class="level-0" value="monitors">Monitors</option>
-                        <option class="level-0" value="motorola">Motorola</option>
-                        <option class="level-0" value="motorola-smart-technologies">Motorola</option>
-                        <option class="level-0" value="nintendo-switch">Nintendo Switch</option>
-                        <option class="level-0" value="nokia">Nokia</option>
-                        <option class="level-0" value="oneplus">OnePlus</option>
-                        <option class="level-0" value="over-ear-on-ear-headphones">Over-Ear &amp; On-Ear Headphones</option>
-                        <option class="level-0" value="powerbank">Powerbank</option>
-                        <option class="level-0" value="samsung">Samsung</option>
-                        <option class="level-0" value="samsung-smart-watches">Samsung</option>
-                        <option class="level-0" value="smart-technologies">Smart Watches</option>
-                        <option class="level-0" value="sony">Sony</option>
-                        <option class="level-0" value="tablets">Tablets</option>
-                        <option class="level-0" value="televisions">Televisions</option>
-                        <option class="level-0" value="uncategorized">Uncategorized</option>
-                        <option class="level-0" value="video-games">Video Games</option>
-                        <option class="level-0" value="xbox-playstation">Xbox PlayStation</option>
-                        <option class="level-0" value="xiaomi">Xiaomi</option>
-                    </select>
-                </aside>
                 <aside id="woocommerce_products-4" class="widget woocommerce widget_products">
                     <h3 class="widgettitle">Sản phẩm bán chạy</h3>
                     <ul class="product_list_widget">

@@ -182,7 +182,7 @@
           </a>
         </li>
         <li>
-          <a href="<?= url('admin/customer/') ?>">
+          <a href="<?= url('admin/customer') ?>">
             <span class="link-title">Khách hàng</span>
             <i class="mdi mdi-account-box link-icon"></i>
           </a>
@@ -204,10 +204,18 @@
           </ul>
         </li>
         <li>
-          <a href="<?= url('admin/blog') ?>">
+          <a href="#sample-pages-y" data-toggle="collapse" aria-expanded="false">
             <span class="link-title">Tin tức</span>
             <i class="mdi mdi-book-open link-icon"></i>
           </a>
+          <ul class="collapse navigation-submenu" id="sample-pages-y">
+            <li>
+              <a href="<?= url('admin/blog-category') ?>">Danh mục</a>
+            </li>
+            <li>
+              <a href="<?= url('admin/blog/') ?>">Bài viết</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="<?= url('admin/contact') ?>">

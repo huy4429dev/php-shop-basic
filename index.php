@@ -484,21 +484,6 @@ include('./layouts/page/header.php');
                                                     <span>Sản Phẩm Mới</span>
                                                 </a>
                                             </li>
-                                            <li id="cmsmasters_tabs_list_item_4e2hpv9pga" class="cmsmasters_tabs_list_item">
-                                                <a href="#">
-                                                    <span>Đặc Biệt</span>
-                                                </a>
-                                            </li>
-                                            <li id="cmsmasters_tabs_list_item_hn0wjvrbh" class="cmsmasters_tabs_list_item">
-                                                <a href="#">
-                                                    <span>Đánh Giá Tốt</span>
-                                                </a>
-                                            </li>
-                                            <li id="cmsmasters_tabs_list_item_1pnxosym4r" class="cmsmasters_tabs_list_item">
-                                                <a href="#">
-                                                    <span>Giảm Giá</span>
-                                                </a>
-                                            </li>
                                         </ul>
                                         <div class="cmsmasters_tabs_wrap">
                                             <div id="cmsmasters_tab_xhsr2nmwb" class="cmsmasters_tab active_tab">
@@ -512,7 +497,11 @@ include('./layouts/page/header.php');
                                                                             <div class="cmsmasters_product_wrapper_border">
                                                                                 <figure class="cmsmasters_product_img">
                                                                                     <a href="product-detail.php?id=<?= $item->id ?>">
-                                                                                        <img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?> " class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-540x540.jpg 540w ' ?> " sizes="(max-width: 540px) 100vw, 540px" />
+                                                                                    <img width="540" height="540" 
+                                                                                            src="<?= $item->hinhanh ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" 
+                                                                                            alt="" srcset="<?= $item->hinhanh ?>" 
+                                                                                            sizes="(max-width: 540px) 100vw, 540px" 
+                                                                                        />
                                                                                     </a>
                                                                                 </figure>
                                                                                 <div class="cmsmasters_product_inner">
@@ -561,235 +550,11 @@ include('./layouts/page/header.php');
                                                                                         </div>
                                                                                         <div class="cmsmasters_product_add_wrap">
                                                                                             <div class="cmsmasters_product_add_inner">
-                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart"><span>Add
-                                                                                                        to
-                                                                                                        Cart</span></a><a href="<?= url('add-cart.php?id='.$item->id) ?>"" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart"><span>View
-                                                                                                        Cart</span></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </li>
-                                                                <?php endforeach ?>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="cmsmasters_tab_4e2hpv9pga" class="cmsmasters_tab">
-                                            <div class="cmsmasters_tab_inner">
-                                                    <div class="cmsmasters_products_shortcode cmsmasters_recent_products">
-                                                        <div class="woocommerce columns-4 ">
-                                                            <ul class="products columns-4 cmsmasters_products">
-                                                                <?php foreach ($productFeatured as $item) : ?>
-                                                                    <li class="product type-product post-1631 status-publish first instock product_cat-cell-phones product_cat-xiaomi has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                        <article class="cmsmasters_product">
-                                                                            <div class="cmsmasters_product_wrapper_border">
-                                                                                <figure class="cmsmasters_product_img">
-                                                                                    <a href="product-detail.php?id=<?= $item->id ?>">
-                                                                                        <img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?> " class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-540x540.jpg 540w ' ?> " sizes="(max-width: 540px) 100vw, 540px" />
-                                                                                    </a>
-                                                                                </figure>
-                                                                                <div class="cmsmasters_product_inner">
-                                                                                    <header class="cmsmasters_product_header entry-header">
-                                                                                        <div class="cmsmasters_product_cat entry-meta">
-                                                                                            <a href="<?= url('product-category.php?id='.$item->danhmuc_id) ?>" class="cmsmasters_cat_color cmsmasters_cat_27" rel="category tag">
-                                                                                                <?= $item->tendanhmuc ?>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <h3 class="cmsmasters_product_title entry-title">
-                                                                                            <a href="<?= url('product-detail.php?id='.$item->id) ?>">
-                                                                                                <?= $item->tensanpham ?>
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                    </header>
-
-                                                                                    <div class="cmsmasters_product_info_wrap">
-                                                                                        <div class="cmsmasters_product_info">
-
-                                                                                                <span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol">
-
-
-                                                                                                        </span><?=  number_format($item->giaban) . ' vnđ' ?></span>
-
-                                                                                        </div>
-
-                                                                                        <div class="cmsmasters_star_rating" itemscope itemtype="//schema.org/AggregateRating" title="Rated 5.00 out of 5">
-                                                                                            <div class="cmsmasters_star_trans_wrap">
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                            </div>
-                                                                                            <div class="cmsmasters_star_color_wrap" data-width="width:100%">
-                                                                                                <div class="cmsmasters_star_color_inner">
-                                                                                                    <?php for($i = 1 ; $i <= $item->danhgia ; $i ++): ?>
-                                                                                                          <span class="cmsmasters_theme_icon_star_full cmsmasters_star"></span>
-                                                                                                    <?php endfor ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <span class="rating dn"><strong itemprop="ratingValue">5.00</strong>
-                                                                                                out of 5</span>
-                                                                                        </div>
-                                                                                        <div class="cmsmasters_product_add_wrap">
-                                                                                            <div class="cmsmasters_product_add_inner">
-                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart"><span>Add
-                                                                                                        to
-                                                                                                        Cart</span></a><a href="<?= url('add-cart.php?id='.$item->id) ?>"" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart"><span>View
-                                                                                                        Cart</span></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </li>
-                                                                <?php endforeach ?>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="cmsmasters_tab_hn0wjvrbh" class="cmsmasters_tab">
-                                            <div class="cmsmasters_tab_inner">
-                                                    <div class="cmsmasters_products_shortcode cmsmasters_recent_products">
-                                                        <div class="woocommerce columns-4 ">
-                                                            <ul class="products columns-4 cmsmasters_products">
-                                                                <?php foreach ($productTopRate as $item) : ?>
-                                                                    <li class="product type-product post-1631 status-publish first instock product_cat-cell-phones product_cat-xiaomi has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                        <article class="cmsmasters_product">
-                                                                            <div class="cmsmasters_product_wrapper_border">
-                                                                                <figure class="cmsmasters_product_img">
-                                                                                    <a href="product-detail.php?id=<?= $item->id ?>">
-                                                                                        <img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?> " class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-540x540.jpg 540w ' ?> " sizes="(max-width: 540px) 100vw, 540px" />
-                                                                                    </a>
-                                                                                </figure>
-                                                                                <div class="cmsmasters_product_inner">
-                                                                                    <header class="cmsmasters_product_header entry-header">
-                                                                                        <div class="cmsmasters_product_cat entry-meta">
-                                                                                            <a href="<?= url('product-category.php?id='.$item->danhmuc_id) ?>" class="cmsmasters_cat_color cmsmasters_cat_27" rel="category tag">
-                                                                                                <?= $item->tendanhmuc ?>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <h3 class="cmsmasters_product_title entry-title">
-                                                                                            <a href="<?= url('product-detail.php?id='.$item->id) ?>">
-                                                                                                <?= $item->tensanpham ?>
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                    </header>
-
-                                                                                    <div class="cmsmasters_product_info_wrap">
-                                                                                        <div class="cmsmasters_product_info">
-
-                                                                                                <span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol">
-
-
-                                                                                                        </span><?=  number_format($item->giaban) . ' vnđ' ?></span>
-
-                                                                                        </div>
-
-                                                                                        <div class="cmsmasters_star_rating" itemscope itemtype="//schema.org/AggregateRating" title="Rated 5.00 out of 5">
-                                                                                            <div class="cmsmasters_star_trans_wrap">
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                            </div>
-                                                                                            <div class="cmsmasters_star_color_wrap" data-width="width:100%">
-                                                                                                <div class="cmsmasters_star_color_inner">
-                                                                                                    <?php for($i = 1 ; $i <= $item->danhgia ; $i ++): ?>
-                                                                                                          <span class="cmsmasters_theme_icon_star_full cmsmasters_star"></span>
-                                                                                                    <?php endfor ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <span class="rating dn"><strong itemprop="ratingValue">5.00</strong>
-                                                                                                out of 5</span>
-                                                                                        </div>
-                                                                                        <div class="cmsmasters_product_add_wrap">
-                                                                                            <div class="cmsmasters_product_add_inner">
-                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart"><span>Add
-                                                                                                        to
-                                                                                                        Cart</span></a><a href="<?= url('add-cart.php?id='.$item->id) ?>"" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart"><span>View
-                                                                                                        Cart</span></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </article>
-                                                                    </li>
-                                                                <?php endforeach ?>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="cmsmasters_tab_1pnxosym4r" class="cmsmasters_tab">
-                                            <div class="cmsmasters_tab_inner">
-                                                    <div class="cmsmasters_products_shortcode cmsmasters_recent_products">
-                                                        <div class="woocommerce columns-4 ">
-                                                            <ul class="products columns-4 cmsmasters_products">
-                                                                <?php foreach ($productSale as $item) : ?>
-                                                                    <li class="product type-product post-1631 status-publish first instock product_cat-cell-phones product_cat-xiaomi has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                        <article class="cmsmasters_product">
-                                                                            <div class="cmsmasters_product_wrapper_border">
-                                                                                <figure class="cmsmasters_product_img">
-                                                                                    <a href="product-detail.php?id=<?= $item->id ?>">
-                                                                                        <img width="540" height="540" src="<?= BASE_URL . '/' . $item->hinhanh ?> " class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="https://devicer.cmsmasters.net/wp-content/uploads/2015/05/6-540x540.jpg 540w ' ?> " sizes="(max-width: 540px) 100vw, 540px" />
-                                                                                    </a>
-                                                                                </figure>
-                                                                                <div class="cmsmasters_product_inner">
-                                                                                    <header class="cmsmasters_product_header entry-header">
-                                                                                        <div class="cmsmasters_product_cat entry-meta">
-                                                                                            <a href="<?= url('product-category.php?id='.$item->danhmuc_id) ?>" class="cmsmasters_cat_color cmsmasters_cat_27" rel="category tag">
-                                                                                                <?= $item->tendanhmuc ?>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <h3 class="cmsmasters_product_title entry-title">
-                                                                                            <a href="<?= url('product-detail.php?id='.$item->id) ?>">
-                                                                                                <?= $item->tensanpham ?>
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                    </header>
-
-                                                                                    <div class="cmsmasters_product_info_wrap">
-                                                                                        <div class="cmsmasters_product_info">
-
-                                                                                                <span class="woocommerce-Price-amount amount"><span><span class="woocommerce-Price-currencySymbol">
-
-
-                                                                                                        </span><?=  number_format($item->giaban) . ' vnđ' ?></span>
-
-                                                                                        </div>
-
-                                                                                        <div class="cmsmasters_star_rating" itemscope itemtype="//schema.org/AggregateRating" title="Rated 5.00 out of 5">
-                                                                                            <div class="cmsmasters_star_trans_wrap">
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                                <span class="cmsmasters_theme_icon_star_empty cmsmasters_star"></span>
-                                                                                            </div>
-                                                                                            <div class="cmsmasters_star_color_wrap" data-width="width:100%">
-                                                                                                <div class="cmsmasters_star_color_inner">
-                                                                                                    <?php for($i = 1 ; $i <= $item->danhgia ; $i ++): ?>
-                                                                                                          <span class="cmsmasters_theme_icon_star_full cmsmasters_star"></span>
-                                                                                                    <?php endfor ?>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <span class="rating dn"><strong itemprop="ratingValue">5.00</strong>
-                                                                                                out of 5</span>
-                                                                                        </div>
-                                                                                        <div class="cmsmasters_product_add_wrap">
-                                                                                            <div class="cmsmasters_product_add_inner">
-                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart"><span>Add
-                                                                                                        to
-                                                                                                        Cart</span></a><a href="<?= url('add-cart.php?id='.$item->id) ?>"" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart"><span>View
-                                                                                                        Cart</span></a>
+                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart">
+                                                                                                    <span>Thêm vào giỏ </span></a>
+                                                                                                    <a href="<?= url('add-cart.php?id='.$item->id) ?>" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart">
+                                                                                                    <span>Xem giỏ hàng</span>
+                                                                                                </a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1058,10 +823,13 @@ include('./layouts/page/header.php');
                                                                                         </div>
                                                                                         <div class="cmsmasters_product_add_wrap">
                                                                                             <div class="cmsmasters_product_add_inner">
-                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart"><span>Add
-                                                                                                        to
-                                                                                                        Cart</span></a><a href="<?= url('add-cart.php?id='.$item->id) ?>"" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart"><span>View
-                                                                                                        Cart</span></a>
+                                                                                                <a href="<?= url('add-cart.php?id='.$item->id) ?>" data-product_id="1631" data-product_sku="" class="cmsmasters_product_button add_to_cart_button cmsmasters_add_to_cart_button product_type_simple ajax_add_to_cart" title="Add to Cart">
+                                                                                                    <span>Thêm vào giỏ </span></a>
+                                                                                                    <span>Thêm vào giỏ </span></a>
+                                                                                                     <a href="<?= url('add-cart.php?id='.$item->id) ?>" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart">
+                                                                                                    <span>Xem giỏ hàng</span><a href="<?= url('add-cart.php?id='.$item->id) ?>" class="cmsmasters_product_button added_to_cart wc-forward" title="View Cart">
+                                                                                                    <span>Xem giỏ hàng</span>
+                                                                                                </a>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1100,7 +868,7 @@ include('./layouts/page/header.php');
                                                     <div class="cmsmasters_slider_post_outer">
                                                         <div class="cmsmasters_slider_post_date_img_wrap">
                                                             <figure class="cmsmasters_img_rollover_wrap preloader">
-                                                                <img width="580" height="366" src="<?= BASE_URL .'/' . $item->hinhanh ?> " class="full-width wp-post-image" alt="Best care and support at Our Stores" title="blog5" />
+                                                                <img width="580" height="366" src="<?=$item->hinhanh ?> " class="full-width wp-post-image" alt="Best care and support at Our Stores" title="blog5" />
                                                                 <div class="cmsmasters_img_rollover"><a href="blog-detail.php?id=<?= $item->id ?>" title="Best care and support at Our Stores" class="cmsmasters_open_link"></a>
                                                                 </div>
                                                             </figure>

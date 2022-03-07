@@ -8,8 +8,10 @@ if (!Auth::user()) {
     Redirect::url('admin/account/login.php');
 }
 
+$sql = "SELECT baiviet.*, danhmuc_blog.tendanhmuc FROM baiviet join danhmuc_blog  on baiviet.danhmuc_id = danhmuc_blog.id";
+$data = $DB->query($sql);
 
-$title = "Danh mục bài viết";
+$title = "Bài viết";
 include('../../layouts/admin/header.php');
 
 ?>
@@ -26,13 +28,41 @@ include('../../layouts/admin/header.php');
             </th>
             <th class="th-sm">Đoạn trích
             </th>
-            <th class="th-sm ">Hình ảnh
-            <th class="th-sm ">Nội dung
-            <th class="th-sm ">Danh mục
-            <th class="th-sm text-center" colspan="2">Hành động</th>
+            <th class="th-sm">Danh mục
+            </th>
+            <th class="th-sm text-center">Thời gian tạo
+            </th>
+            <th  class="th-sm text-center" colspan="2">Hành động</th>
         </tr>
     </thead>
     <tbody>
+        <?php if (is_array($data)) : ?>
+            <?php $i = 1 ?>
+            <?php foreach ($data as $item) : ?>
+                <tr>
+                    <td style="width:50px"><?= $i ?></td>
+                    <td>
+                      <?= strlen($item->tieude) > 50 ?  substr($item->tieude, 0, 50) . ' ...' : $item->tieude ?>
+                    </td>
+                    <td>
+                        <?= strlen($item->doantrich) > 50 ?  substr($item->mota, 0, 50) . ' ...' : $item->doantrich ?>
+                    </td>
+                    <td>
+                        <?= strlen($item->tendanhmuc) > 50 ?  substr($item->mota, 0, 50) . ' ...' : $item->doantrich ?>
+                    </td>
+                    <td style="width:120px">
+                        <?= formatDate($item->created_at) ?>
+                    </td>
+                    <td class="text-center" style="width:50px">
+                        <a href="<?= url("admin/blog/update.php?id=$item->id") ?>"><b class='badge badge-warning status-Content'>Sửa</b></a>
+                    </td>
+                    <td class="text-center" style="width:50px">
+                        <a href="#"><b class='badge badge-danger status-Content' type="button" data-toggle="modal" data-target="#exampleModal-<?= $item->id ?>">Xóa</b></a>
+                    </td>
+                </tr>
+                <?php $i++ ?>
+            <?php endforeach ?>
+        <?php endif ?>
     </tbody>
 </table>
 <!-- Modal -->
